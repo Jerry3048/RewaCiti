@@ -39,8 +39,6 @@ function Studentarea() {
 
   const [preferedLocation, setPreferedLocation] = useState("");
   const [preferedType, setPreferedType] = useState("");
-  const [preferedNoOfRooms, setPreferedNoOfRooms] = useState("");
-  const [preferedNoOfBathRooms, setPreferedNoOfBathRooms] = useState("");
   const [Budget, setBudget] = useState("");
 
   // NEW: Price range controlled through dropdown
@@ -130,10 +128,6 @@ function Studentarea() {
     ),
   );
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
-  const uniqueBedrooms = Array.from(
-    new Set(properties.map((p) => p.bedrooms)),
-  ).sort((a, b) => a - b);
-
 
   if (loading) {
     return (
@@ -165,7 +159,7 @@ function Studentarea() {
             to="/Properties"
             className="inline-block mt-3 bg-[#703BF7] hover:bg-[#5c2fe0] transition text-white px-4 py-2 rounded-lg text-sm font-medium"
           >
-            General Residence
+            🏠General Residence
           </NavLink>
         </div>
         <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[80%]">
@@ -392,7 +386,7 @@ function Studentarea() {
         </div>
       </div>
 
-      <section className="bg-black/30 p-5 pb-20" id="Portfolio">
+       <section className="bg-black/30 p-5 pb-20" id="Portfolio">
         <div className="  ">
           <div className="flex-1 flex flex-col justify-center px-5 space-y-3 z-10 mb-6">
             <img
@@ -414,22 +408,12 @@ function Studentarea() {
           </div>
 
           <form className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
-            {/* First Name */}
+            {/* Name */}
             <div>
-              <label className="text-gray-300 text-sm">First Name</label>
+              <label className="text-gray-300 text-sm">Name</label>
               <input
                 type="text"
-                placeholder="Enter First Name"
-                className="w-full mt-1 p-3 rounded-lg bg-black/70 text-white border border-gray-600/70 focus:outline-none"
-              />
-            </div>
-
-            {/* Last Name */}
-            <div>
-              <label className="text-gray-300 text-sm">Last Name</label>
-              <input
-                type="text"
-                placeholder="Enter Last Name"
+                placeholder="Enter Full Name"
                 className="w-full mt-1 p-3 rounded-lg bg-black/70 text-white border border-gray-600/70 focus:outline-none"
               />
             </div>
@@ -494,42 +478,14 @@ function Studentarea() {
               </select>
             </div>
 
-            {/* Bathrooms */}
-            <div>
-              <label className="text-gray-300 text-sm">No. of Bathrooms</label>
-              <select
-                className="p-3 rounded-lg bg-black/70 text-gray-400 focus:outline-none border w-full border-gray-600/70"
-                value={preferedNoOfBathRooms}
-                onChange={(e) => setPreferedNoOfBathRooms(e.target.value)}
-              >
-                <option value="" disabled hidden>
-                  Number of Bathrooms
-                </option>
-                {uniqueBedrooms.map((b, idx) => (
-                  <option key={idx} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
-            </div>
-
             {/* Bedrooms */}
             <div>
-              <label className="text-gray-300 text-sm">No. of Bedrooms</label>
-              <select
-                className="p-3 rounded-lg bg-black/70 text-gray-400 focus:outline-none border w-full border-gray-600/70 "
-                value={preferedNoOfRooms}
-                onChange={(e) => setPreferedNoOfRooms(e.target.value)}
-              >
-                <option value="" disabled hidden>
-                  Number of Bedrooms
-                </option>
-                {uniqueBedrooms.map((b, idx) => (
-                  <option key={idx} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
+              <label className="text-gray-300 text-sm">No of Bedrooms</label>
+              <input
+                type="number"
+                placeholder="Enter Number of Bedrooms"
+                className="w-full mt-1 p-3 py-2.5 rounded-lg bg-black/70 text-white border border-gray-600/70 focus:outline-none"
+              />
             </div>
 
             {/* Budget */}

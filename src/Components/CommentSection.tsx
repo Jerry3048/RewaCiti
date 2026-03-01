@@ -40,8 +40,8 @@ function CommentSection() {
             />
           <div className="flex justify-between items-center mb-4">
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold">What Our Clients Say </h1>
-          <p className="text-gray-400 w-[95%]">
+          <h1 className="text-4xl font-semibold text-gray-900 dark:text-white">What Our Clients Say </h1>
+          <p className="dark:text-gray-400 text-gray-600 w-full">
            Read the success stories and heartfelt testimonials from our valued clients. Discover why they chose RewaCity for their real estate needs.
           </p>
         </div>
@@ -57,7 +57,7 @@ function CommentSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
         {currentComments.map((comment) => (
-          <div key={comment.id} className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white">
+          <div key={comment.id} className="rounded-xl p-5 text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A] border border-purple-100 dark:border-gray-600/30">
             {/* Rating */}
             <p className="text-yellow-400 text-lg">
               {"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}
@@ -67,7 +67,7 @@ function CommentSection() {
             <h3 className="text-lg font-semibold mb-2">{comment.summary}</h3>
 
             {/* Description */}
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
               {expanded[comment.id] ? comment.description : truncateWords(comment.description, 10)}
               {comment.description.split(" ").length > 10 && (
                 <button
@@ -96,11 +96,11 @@ function CommentSection() {
           </div>
         ))}
       </div>
-      <hr className="my-4 border-gray-600/30" />
+      <hr className="h-px bg-gray-600 border-0 w-full my-5" />
 
       {/* Pagination */}
       <div className="flex justify-between items-center gap-4 text-white">
-        <p className="text-sm">{page + 1} of {totalPages}</p>
+        <p className="text-sm text-black dark:text-white">{page + 1} of {totalPages}</p>
         <NavLink
           to="/AllComments"
           className="text-[#703BF7] border border-[#703BF7] px-4 py-2 rounded hover:bg-[#703BF7] hover:text-white transition text-center w-[120px]  md:hidden"

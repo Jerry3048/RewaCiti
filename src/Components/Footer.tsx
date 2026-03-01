@@ -1,4 +1,4 @@
-import logo from "/logo/Logo.png"; 
+import logo from "/Symbol.png"; 
 import Entericon from "/logo/Send.png";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router";
@@ -14,8 +14,8 @@ function Footer() {
         >
             <div className="sm:flex justify-between items-center space-y-6 sm:space-y-0">
             <div className="space-y-3">
-              <h1 className="text-3xl font-semibold">Start Your Real Estate Journey Today</h1>
-              <p className="text-gray-400 w-[90%]">
+              <h1 className="text-3xl font-semibold text-white">Start Your Real Estate Journey Today</h1>
+              <p className="dark:text-gray-400 text-gray-100 w-[90%]">
                 Your dream property is just a click away. Whether you're looking for a new home, a strategic investment, or expert real estate advice, RewaCity is here to assist you every step of the way. Take the first step towards your real estate goals and explore our available properties or get in touch with our team for personalized assistance.
               </p>
             </div>
@@ -25,17 +25,18 @@ function Footer() {
             </button>
           </div>  
         </div>
-        <hr className=" border-gray-600/30 border" />
+        <hr className=" dark:border-gray-600/30 border-gray-900 border" />
 
 
         <div className="p-8 lg:flex space-y-10 lg:space-y-0 justify-between">
           <div className="mr-[5%]  space-y-4">
-            <img src={logo} alt="logo" className="h-8" />
-            <form className="flex items-center p-2 rounded overflow-hidden border border-gray-600/30 lg:w-[250px] w-full">
+            <p className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">
+              <img src={logo} alt="logo" className="h-10 mr-1" /><span className="text-black dark:text-white">RewaCity</span></p>
+            <form className="flex items-center p-2 rounded overflow-hidden border dark:border-gray-600/30 border-gray-900 lg:w-[250px] w-full">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="text-white outline-none w-full "
+                className="text-black dark:text-white outline-none w-full "
               />
               <button type="submit" className="flex items-center justify-center">
                 <img src={Entericon} alt="enter" className="w-4 h-4" />
@@ -43,25 +44,25 @@ function Footer() {
             </form>
           </div>
 
-          <div className="w-full lg:w-[90%] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:gap-8 lg:gap-4 h-fit divide-x md:divide-x-0 divide-gray-700/30">
+          <div className="w-full lg:w-[90%] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 xl:gap-8 lg:gap-4 h-fit divide-x md:divide-x-0 dark:divide-gray-700/30 divide-gray-900">
               {/* COLUMN 1 — Home */}
                 <div className="p-4">
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/">Home</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                      <Link to="/#features" className="hover:text-white cursor-pointer">Features</Link>
+                      <Link to="/#features" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Features</Link>
                     </li>
                     <li>
-                      <Link to="/#properties" className="hover:text-white cursor-pointer">Properties</Link>
+                      <Link to="/#properties" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Properties</Link>
                     </li>
                     <li>
-                      <Link to="/#testimonials" className="hover:text-white cursor-pointer">Testimonials</Link>
+                      <Link to="/#testimonials" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Testimonials</Link>
                     </li>
                     <li>
-                      <Link to="/#faq" className="hover:text-white cursor-pointer">FAQ</Link>
+                      <Link to="/#faq" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">FAQ</Link>
                     </li>
                   </ul>
-                  <hr className="my-4 border-gray-600/30 md:hidden" />
+                  <hr className="my-4 dark:border-gray-600/30 border-gray-900 md:hidden" />
                 </div>
 
                 {/* COLUMN 2 — About Us */}
@@ -69,22 +70,22 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/About">About Us</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <Link to="/About#Journey" className="hover:text-white cursor-pointer">Our Story</Link>
+                        <Link to="/About#Journey" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Story</Link>
                     </li>
                     <li>
-                      <Link to="/About#Values" className="hover:text-white cursor-pointer">Our Values</Link>
+                      <Link to="/About#Values" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Values</Link>
                     </li>
                     <li>
-                      <Link to="/About#Achievements" className="hover:text-white cursor-pointer">Our Achievements</Link>
+                      <Link to="/About#Achievements" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Achievements</Link>
                     </li>
                     <li>
-                      <Link to="/About#Process" className="hover:text-white cursor-pointer">How it work</Link>
+                      <Link to="/About#Process" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">How it work</Link>
                     </li>
                     <li>
-                      <Link to="/About#Team" className="hover:text-white cursor-pointer">Our Team</Link>
+                      <Link to="/About#Team" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Team</Link>
                     </li>
                   </ul>
-                  <hr className="my-4 border-gray-600/30 md:hidden" />
+                  <hr className="my-4 dark:border-gray-600/30 border-gray-900 md:hidden" />
                 </div>
 
                 {/* COLUMN 3 — Properties */}
@@ -92,28 +93,28 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Properties">Properties</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <Link to="/Properties#Categories" className="hover:text-white cursor-pointer">Categories</Link>
+                        <Link to="/Properties#Categories" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Categories</Link>
                     </li>
                     <li>
-                      <Link to="/Properties#Portfolio" className="hover:text-white cursor-pointer">Portfolio</Link>
+                      <Link to="/Properties#Portfolio" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Portfolio</Link>
                     </li>
                   </ul>
-                  <hr className="my-4 border-gray-600/30 md:hidden" />
+                  <hr className="my-4 dark:border-gray-600/30 border-gray-900 md:hidden" />
 
                   <div className="py-4 sm:hidden">
                     <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Contact">Contact Us</Link></h3>
                     <ul className="space-y-5 text-sm">
                       <li>
-                          <Link to="/Contact#Contactinfo" className="hover:text-white cursor-pointer">Contact info</Link>
+                          <Link to="/Contact#Contactinfo" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact info</Link>
                       </li>
                       <li>
-                          <Link to="/Contact#Contactform" className="hover:text-white cursor-pointer">Contact Form</Link>
+                          <Link to="/Contact#Contactform" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact Form</Link>
                       </li>
                       <li>
-                        <Link to="/Contact#Ouroffices" className="hover:text-white cursor-pointer">Our Offices</Link>
+                        <Link to="/Contact#Ouroffices" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Offices</Link>
                       </li>
                     </ul>
-                    <hr className="my-4 border-gray-600/30 md:hidden" />
+                    <hr className="my-4 dark:border-gray-600/30 border-gray-900 md:hidden" />
                   </div>
                 </div>
 
@@ -122,19 +123,19 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Service">Services</Link></h3>
                   <ul className="space-y-5 text-sm">
                      <li>
-                      <Link to="/Service#whatweoffer" className="hover:text-white cursor-pointer">What We Offer</Link>
+                      <Link to="/Service#whatweoffer" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">What We Offer</Link>
                     </li>
                     <li>
-                        <Link to="/Service#valuation" className="hover:text-white cursor-pointer">Valuation Mastery</Link>
+                        <Link to="/Service#valuation" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Valuation Mastery</Link>
                     </li> 
                     <li>
-                      <Link to="/Service#Management" className="hover:text-white cursor-pointer">Property Management</Link>
+                      <Link to="/Service#Management" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Property Management</Link>
                     </li>
                     <li>
-                      <Link to="/Service#marketing" className="hover:text-white cursor-pointer">Strategic Marketing</Link>
+                      <Link to="/Service#marketing" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Strategic Marketing</Link>
                     </li>
                   </ul>
-                  <hr className="my-4 border-gray-600/30 md:hidden" />
+                  <hr className="my-4 dark:border-gray-600/30 border-gray-900 md:hidden" />
                 </div>
 
                 {/* COLUMN 5 — Contact Us (shows on tablet and desktop) */}
@@ -142,16 +143,16 @@ function Footer() {
                   <h3 className="text-gray-400 font-semibold mb-5"><Link to="/Contact">Contact Us</Link></h3>
                   <ul className="space-y-5 text-sm">
                       <li>
-                          <Link to="/Contact#Contactinfo" className="hover:text-white cursor-pointer">Contact info</Link>
+                          <Link to="/Contact#Contactinfo" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact info</Link>
                       </li>
                       <li>
-                          <Link to="/Contact#Contactform" className="hover:text-white cursor-pointer">Contact Form</Link>
+                          <Link to="/Contact#Contactform" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact Form</Link>
                       </li>
                       <li>
-                        <Link to="/Contact#Ouroffices" className="hover:text-white cursor-pointer">Our Offices</Link>
+                        <Link to="/Contact#Ouroffices" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Offices</Link>
                       </li>
                     </ul>
-                  <hr className="my-4 border-gray-600/30 md:hidden" />
+                  <hr className="my-4 dark:border-gray-600/30 border-gray-900 md:hidden" />
                 </div>
 
               </div>
@@ -164,7 +165,7 @@ function Footer() {
             {/* Left side: Year and Terms */}
             <div className="text-gray-400 text-sm flex flex-col md:flex-row items-center gap-2">
               <span>© {currentYear} RewaCity. All rights reserved.</span>
-              <a href="/terms" className="hover:text-white">
+              <a href="/terms" className="hover:text-[#703BF7] text-black dark:text-white">
                 Terms & Conditions
               </a>
             </div>

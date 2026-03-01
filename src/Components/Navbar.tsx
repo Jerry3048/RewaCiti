@@ -1,10 +1,9 @@
 import { NavLink } from "react-router";
-import text from "/logo/Text.png";
-import logo from "/logo/Logo.png";
+import logo from "/Symbol.png";
 import Hanburger from "/logo/Icon.png";
 import { useState } from "react";
 import { useThemeStore } from "../Store/useThemeStore.ts";
-import { FiSun, FiMoon } from "react-icons/fi";
+import { FiSun, FiMoon} from "react-icons/fi";
 
 
 const Navbar = () => {
@@ -19,17 +18,18 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-[#1A1A1A]">
+    <div className="bg-gray-300 text-black dark:bg-[#1A1A1A] dark:text-white">
       {/* Top small bar */}
       <div
-        className="text-white bg-[#1A1A1A] h-10 flex items-center justify-between px-4 sm:px-10 w-full"
+        className="h-10 flex items-center justify-between px-4 sm:px-10 w-full text-black bg-gray-300 dark:bg-[#1A1A1A] dark:text-white"
         style={{
           backgroundImage: "url('/logo/Abstract Design.png')",
           backgroundPosition: "center",
         }}
       >
         <div className="flex justify-center lg:ml-[40%] sm:ml-[20%] items-center">
-          <img src={text} alt="Logo" className="h-5 mr-2 w-[70%]" />
+          
+         <p className="flex items-center mr-1 ">✨Discover Properties with RewaCity</p>
           <NavLink to="/Service" className="underline text-sm hidden sm:block">
             Learn More
           </NavLink>
@@ -57,21 +57,22 @@ const Navbar = () => {
       <div className="max-w-[90%] mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 text-white text-[20px] font-bold ">
-            <img src={logo} alt="logo" className="h-9 w-30" />
+          <div className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">
+            <img src={logo} alt="logo" className="h-10 mr-1" />
+           <span> RewaCity</span>
           </div>
 
           {/* Desktop Nav */}
-          <div className="hidden sm:flex space-x-6 items-center text-white 2xl:text-[18px] sm:text-[14px]">
+          <div className="hidden sm:flex space-x-6 items-center text-gray-800 2xl:text-[18px] sm:text-[15px] dark:text-white">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `hover:text-[#F6FBE9] ${
+                  `${
                     isActive
-                      ? "p-2 px-3 bg-[#703BF7] border border-gray-600/30 rounded-md"
-                      : " text-white border-gray-600/30 hover:bg-[#9677df] hover:border-[#703BF7] p-2 px-3 rounded-md"
+                      ? 'p-2 px-3 bg-[#703BF7] text-white border border-gray-300 rounded-md'
+                      : 'text-gray-800 dark:text-white border-gray-200 dark:border-gray-600 hover:bg-[#9677df] hover:border-[#703BF7] p-2 px-3 rounded-md'
                   }`
                 }
               >
@@ -88,8 +89,8 @@ const Navbar = () => {
                   className={`py-2 px-4 rounded-md border transition
                     ${
                       isActive
-                        ? "bg-[#703BF7] text-white border-[#703BF7]"
-                        : "bg-black/30 text-white border-gray-600/30 hover:bg-[#9677df] hover:border-[#703BF7]"
+                        ? 'bg-[#703BF7] text-white border-[#703BF7]'
+                        : 'bg-gray-100 text-gray-800 border-gray-200 dark:hover:bg-[#9677df] hover:bg-[#9677df] hover:text-white hover:border-[#703BF7] dark:bg-black/30 dark:text-white'
                     }
                   `}
                 >
@@ -110,14 +111,14 @@ const Navbar = () => {
           {/* MOBILE MENU */}
          {isOpen && (
           <div
-            className={`fixed top-12 right-0 w-[55%] bg-[#1A1A1A] backdrop-blur-lx 
-            text-white p-6 rounded-xl shadow-xl z-50 
+            className={`fixed top-10.5 right-0 w-[55%] bg-white dark:bg-[#1A1A1A] backdrop-blur-lx 
+            text-gray-800 dark:text-white p-6 rounded-xl shadow-xl z-50 
             flex flex-col items-start space-y-4 transition duration-300`}
           >
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="text-white text-2xl absolute top-3 right-5"
+              className="text-gray-800 dark:text-white text-2xl absolute top-3 right-5"
             >
               ✕
             </button>

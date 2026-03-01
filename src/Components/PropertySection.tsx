@@ -26,8 +26,8 @@ function PropertySection() {
   );
 
   return (
-   <div className="w-[95%] mx-auto py-10 md:py-4">
-     <div>
+   <div className="w-[99%] mx-auto py-10 md:py-4">
+     <div className="p-2">
           <img
               src="/logo/Abstract Design (1).png"
               alt="Icon"
@@ -35,8 +35,8 @@ function PropertySection() {
             />
           <div className="flex justify-between items-center mb-4">
         <div className="space-y-2">
-          <h1 className="text-4xl font-semibold">Featured Properties</h1>
-          <p className="text-gray-400 w-full">
+          <h1 className="text-4xl font-semibold text-gray-900 dark:text-white">Featured Properties</h1>
+          <p className="dark:text-gray-400 text-gray-600 w-full">
             Explore our handpicked selection of featured properties.
           </p>
         </div>
@@ -57,11 +57,11 @@ function PropertySection() {
         ))}
         </div>
 
-        <hr className="my-4 border-gray-600/30" />
+        <hr className="my-4 h-px bg-gray-600 border-0 w-full" />
   
         {/* Pagination */}
-        <div className="flex justify-between items-center  text-white">
-          <p className="text-sm">
+        <div className="flex justify-between items-center  text-white ">
+          <p className="text-sm text-black">
             {page + 1} of {totalPages}
           </p>
           <NavLink

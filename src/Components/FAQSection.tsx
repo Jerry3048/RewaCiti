@@ -44,8 +44,8 @@ function FAQSection() {
 
         <div className="flex justify-between items-center mb-4">
           <div className="space-y-2">
-            <h1 className="text-4xl font-semibold">Frequently Asked Questions</h1>
-            <p className="text-gray-400 w-[95%]">
+            <h1 className="text-4xl font-semibold text-gray-900 dark:text-white">Frequently Asked Questions</h1>
+            <p className="dark:text-gray-400 text-gray-600 w-[95%]">
               Find answers to common questions about RewaCity's services, property listings, and the real estate process. We're here to provide clarity and assist you every step of the way.
             </p>
           </div>
@@ -64,18 +64,18 @@ function FAQSection() {
         {currentFAQs.map((faq) => (
           <div
             key={faq.id}
-            className="bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-5 text-white"
+            className="text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A] border border-purple-100 dark:border-gray-600/30 rounded-xl p-5"
           >
             {/* Question */}
             <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
 
             {/* Answer */}
-            <p className="text-sm text-gray-300">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               {expanded[faq.id]
                 ? faq.answer
-                : truncateWords(faq.answer, 10)}
+                : truncateWords(faq.answer,8)}
             </p>
-             {faq.answer.split(" ").length > 10 && (
+             {faq.answer.split(" ").length > 8 && (
                 <button
                   onClick={() =>
                     setExpanded((prev) => ({
@@ -92,11 +92,11 @@ function FAQSection() {
         ))}
       </div>
 
-      <hr className="my-4 border-gray-600/30" />
+      <hr className="h-px bg-gray-600 border-0 w-full my-4" />
 
       {/* Pagination */}
       <div className="flex justify-between items-center gap-4 text-white">
-        <p className="text-sm">
+        <p className="text-sm text-black dark:text-white">
           {page + 1} of {totalPages}
         </p>
 

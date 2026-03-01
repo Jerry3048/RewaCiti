@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router";
+import { useEffect } from "react";
+import { useThemeStore } from "./Store/useThemeStore";
 import Home from "./Pages/Home";
 import AllProperties from "./Pages/AllProperties";
 import AllComments from "./Pages/AllComment";
@@ -15,6 +17,15 @@ import Login from "./Pages/Login";
 
 
 function App() {
+  const theme = useThemeStore((s) => s.theme);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
   return (
     <BrowserRouter>
       <Routes>

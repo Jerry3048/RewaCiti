@@ -159,13 +159,13 @@ function PropertySearchSection() {
             <input
               type="text"
               placeholder="Search For A Property"
-              className="p-3 flex justify-center items-center dark:placeholder-gray-400 placeholder-gray-900/70 rounded-lg dark:bg-black/70 bg-gray-300 text-white focus:outline-none border border-gray-600/70 w-full rounded-b-none"
+              className="p-3 flex justify-center items-center dark:placeholder-gray-400 placeholder-gray-900/70 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border border-gray-600/70 w-full rounded-b-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 dark:bg-black/70 bg-gray-300 text-white rounded-lg border border-gray-600 md:hidden"
+              className="flex items-center gap-2 px-4 py-2 dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white rounded-lg border border-gray-600 md:hidden"
             >
               <FiFilter />
             </button>
@@ -178,7 +178,7 @@ function PropertySearchSection() {
           {/* Filters Container */}
           <div
             className={`md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-0 ${showFilters ? "block" : "hidden"}
-                    md:block bg-neutral-900 md:bg-transparent rounded-2xl md:rounded-none p-4 md:p-0 mb-6`}
+                    md:block md:bg-transparent rounded-2xl md:rounded-none md:p-0 mb-6`}
           >
             {/* Location */}
             <div className="border-7 dark:border-neutral-800/90 border-neutral-500/70 rounded-2xl bg-neutral-700/90 rounded-tr-none">
@@ -398,7 +398,7 @@ function PropertySearchSection() {
             </p>
           </div>
 
-          <form className="grid dark:bg-[#121212] bg-white  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
+          <form className="grid dark:bg-[#1A1A1A] bg-white  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border border-gray-700/40 rounded-3xl p-6 md:p-10">
             {/* Name */}
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Name</label>

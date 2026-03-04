@@ -27,12 +27,12 @@ function Contact() {
   return (
     <div className="">
       <Navbar />
-      <div className="bg-linear-to-r from-neutral-600/20 to-black/60 p-10  space-y-6">
-        <h1 className="text-white md:text-4xl text-3xl">
+      <div className="bg-linear-to-r dark:from-neutral-600/20 from-gray-300/50 dark:to-black/60 to-gray-400 p-10  space-y-6">
+        <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">
           Get in Touch with RewaCity
         </h1>
 
-        <p className="text-gray-400 text-[14px] max-w-[95%]">
+        <p className="text-gray-800 dark:text-gray-400 text-[14px] max-w-[95%]">
           Welcome to RewaCity's Contact Us page. We're here to assist you with
           any inquiries, requests, or feedback you may have. Whether you're
           looking to buy or sell a property, explore investment opportunities,
@@ -42,7 +42,7 @@ function Contact() {
       </div>
 
       <section
-        className="px-2 py-2 bg-black/30 border-t-5 border-b-5 border-gray-600/30"
+        className="px-2 py-2 bg-gray-300 dark:bg-black/30 border-t-5 border-b-5 border-gray-600/30"
         id="Contactinfo"
       >
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -50,7 +50,7 @@ function Contact() {
           {services1.map((item, index) => (
             <div
               key={index}
-              className="relative bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
+              className="relative bg-white dark:bg-[#1A1A1A] border border-gray-600/30 rounded-xl p-6 flex flex-col items-center hover:scale-[1.02] transition"
             >
               {/* Arrow at top-right */}
               <div className="absolute top-3 right-3">
@@ -69,13 +69,13 @@ function Contact() {
               />
 
               {/* Text */}
-              <p className="text-white text-center text-sm">{item.text}</p>
+              <p className="text-gray-900 dark:text-white text-center text-sm">{item.text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-black/30 px-5" id="Contactform">
+      <section className="bg-gray-300 dark:bg-black/30 px-5" id="Contactform">
         <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
           <img
             src="/logo/Abstract Design (1).png"
@@ -83,9 +83,9 @@ function Contact() {
             className="w-13 h-13 object-contain"
           />
 
-          <h1 className="text-white md:text-4xl text-3xl">Let's Connect</h1>
+          <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">Let's Connect</h1>
 
-          <p className="text-gray-400 text-[14px] max-w-[95%]">
+          <p className="text-gray-800 dark:text-gray-400 text-[14px] max-w-[95%]">
             We're excited to connect with you and learn more about your real
             estate goals. Use the form below to get in touch with RewaCity.
             Whether you're a prospective client, partner, or simply curious
@@ -94,15 +94,15 @@ function Contact() {
           </p>
         </div>
 
-        <form className="space-y-5 border border-gray-600/30 p-4 rounded-xl">
+        <form className="space-y-5 border border-gray-600/30 p-4 rounded-xl dark:bg-[#121212] bg-white">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* First & Last Name */}
             <div>
-              <label className="text-sm mb-1 block">First Name</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm mb-1 block">First Name</label>
               <input
                 type="text"
                 placeholder="Enter First Name"
-                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
@@ -111,7 +111,7 @@ function Contact() {
               <input
                 type="text"
                 placeholder="Enter Last Name"
-                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
@@ -121,7 +121,7 @@ function Contact() {
               <input
                 type="email"
                 placeholder="Enter your Email"
-                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
@@ -130,7 +130,7 @@ function Contact() {
               <input
                 type="tel"
                 placeholder="Enter Phone Number"
-                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white"
               />
             </div>
 
@@ -138,28 +138,28 @@ function Contact() {
             <div>
               <label className="text-sm mb-1 block">Inquiry Type</label>
 
-              <select className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]">
-                <option value="" hidden className="bg-gray-600 ">
+              <select className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white">
+                <option value="" hidden className=" ">
                   Select Inquiry Type
                 </option>
 
-                <option value="buying" className="bg-gray-600">
+                <option value="buying" className="">
                   Buying Property
                 </option>
 
-                <option value="selling" className="bg-gray-600">
+                <option value="selling" className="">
                   Selling Property
                 </option>
 
-                <option value="renting" className="bg-gray-600">
+                <option value="renting" className="">
                   Renting
                 </option>
 
-                <option value="management" className="bg-gray-600">
+                <option value="management" className="">
                   Property Management
                 </option>
 
-                <option value="investment" className="bg-gray-600">
+                <option value="investment" className="">
                   Investment
                 </option>
               </select>
@@ -170,28 +170,28 @@ function Contact() {
                 How Did You Hear About Us?
               </label>
 
-              <select className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]">
-                <option value="" hidden className="bg-gray-600 ">
+              <select className="w-full dark:bg-black/70 bg-gray-300 dark:text-white text-gray-900 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]">
+                <option value="" hidden className=" ">
                   Select Option
                 </option>
 
-                <option value="social" className="bg-gray-600">
+                <option value="social" className="">
                   Social Media
                 </option>
 
-                <option value="google" className="bg-gray-600">
+                <option value="google" className="">
                   Google Search
                 </option>
 
-                <option value="friend" className="bg-gray-600">
+                <option value="friend" className="">
                   Friend / Referral
                 </option>
 
-                <option value="ads" className="bg-gray-600">
+                <option value="ads" className="">
                   Online Ads
                 </option>
 
-                <option value="other" className="bg-gray-600">
+                <option value="other" className="">
                   Other
                 </option>
               </select>
@@ -200,11 +200,11 @@ function Contact() {
 
           {/* Message */}
           <div>
-            <label className="text-sm mb-1 block">Message</label>
+            <label className=" text-gray-700 dark:text-gray-300 text-sm mb-1 block">Message</label>
             <textarea
               rows={4}
               placeholder="Enter your Message here..."
-              className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7]"
+              className="w-full dark:bg-black/70 bg-gray-300 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7] dark:placeholder-gray-400 placeholder-gray-900/70 text-gray-900 dark:text-white"
             />
           </div>
 
@@ -213,8 +213,8 @@ function Contact() {
             <input type="checkbox" className="mt-0.5" />
             <p className="text-gray-400 text-sm">
               I agree with the{" "}
-              <span className="text-white underline">Terms</span> and{" "}
-              <span className="text-white underline">Policy</span>
+              <span className="text-gray-900 dark:text-white underline">Terms</span> and{" "}
+              <span className="text-gray-900 dark:text-white underline">Policy</span>
             </p>
           </div>
 
@@ -230,7 +230,7 @@ function Contact() {
         </form>
       </section>
 
-      <section className="bg-black/30 p-5" id="Ouroffices">
+      <section className="bg-gray-300 dark:bg-black/30 p-5" id="Ouroffices">
         <div className="flex-1 flex flex-col justify-center space-y-3 z-10 mb-6">
           <img
             src="/logo/Abstract Design (1).png"
@@ -238,11 +238,11 @@ function Contact() {
             className="w-13 h-13 object-contain"
           />
 
-          <h1 className="text-white md:text-4xl text-3xl">
+          <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">
             Discover Our Office Location
           </h1>
 
-          <p className="text-gray-400 text-[14px] max-w-[95%]">
+          <p className="text-gray-800 dark:text-gray-400 text-[14px] max-w-[95%]">
             RewaCity is here to serve you across multiple locations. Whether
             you're looking to meet our team, discuss real estate opportunities,
             or simply drop by for a chat, we have offices conveniently located
@@ -250,19 +250,19 @@ function Contact() {
             RewaCity office nearest to you
           </p>
         </div>
-        <div className="border border-gray-600/30 rounded-xl p-6 bg-[#1A1A1A] space-y-5">
+        <div className="border border-gray-600/30 rounded-xl p-6 dark:bg-[#1A1A1A] bg-white space-y-5">
           {/* Title */}
           <div>
-            <h3 className="text-xl font-semibold text-white mb-1">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
               Main Headquarters
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-800 dark:text-gray-400 text-sm">
               123 RewaCity Plaza, City Center, Metropolis
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-gray-300 text-sm leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
             Our main headquarters serve as the heart of RewaCity. Located in the
             bustling city center, this is where our core team of experts
             operates, driving the excellence and innovation that define us.
@@ -307,7 +307,7 @@ function Contact() {
           </a>
         </div>
       </section>
-      <section className="bg-black/30">
+      <section className="bg-gray-300 dark:bg-black/30">
         <Footer />
       </section>
     </div>

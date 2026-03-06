@@ -65,7 +65,9 @@ function PropertySearchSection() {
     const results = properties.filter((p) => {
       const matchesSearch =
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchTerm.toLowerCase());
+        p.description.toLowerCase().includes(searchTerm.toLowerCase())||
+        p.location.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.location.area.toLowerCase().includes(searchTerm.toLowerCase());
 
       const matchesLocation = location ? p.location.state === location : true;
       const matchesType = type ? p.type === type : true;
@@ -333,10 +335,10 @@ function PropertySearchSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {currentProperties.length === 0 ? (
                 <div className="col-span-full text-center py-10">
-                  <h3 className="text-white text-xl font-semibold mb-2">
+                  <h3 className="text-gray-900 dark:text-white text-xl font-semibold mb-2">
                     No properties found
                   </h3>
-                  <p className="text-gray-400 text-sm">
+                  <p className="text-gray-800 dark:text-gray-400 text-sm">
                     Try adjusting your search or filters
                   </p>
                 </div>

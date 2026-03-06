@@ -70,32 +70,32 @@ function PropertyDetails() {
   };
 const finalPrice = property?.price ? property.price * getProfitMultiplier(property.price) : 0;
   return (
-    <div className="bg-black/30">
+    <div className="bg-gray-300 dark:bg-black/30">
       <Navbar />
 
       <div className="mx-auto">
         {/* Name, Location & Price Section */}
         <div className="md:flex gap-3 items-center px-4 py-6 whitespace-nowrap">
-          <h1 className="text-2xl font-semibold mb-1">{property?.name}</h1>
+          <h1 className="text-2xl font-semibold mb-1 text-gray-900 dark:text-white">{property?.name}</h1>
 
           <div className="flex justify-between md:items-center w-full mt-4 md:mt-0">
             {/* Location */}
-            <p className="text-sm border border-gray-600/30 rounded-sm px-2 py-1 inline-flex items-center gap-2">
-              <FiMapPin />
+            <p className="text-sm border dark:text-gray-400 text-gray-900 border-gray-600/30 rounded-sm px-2 py-1 inline-flex items-center gap-2">
+              <FiMapPin className="" />
               {property && [property.location.area, property.location.city, property.location.state].join(", ")}
             </p>
 
             {/* Price */}
             <div className="flex md:flex-col items-center md:items-start">
-              <p className="text-xs text-gray-400 hidden md:flex">Price</p>
-              <p className="text-2xl font-semibold">₦{finalPrice}</p>
+              <p className="text-xs text-gray-800 dark:text-gray-400 hidden md:flex">Price</p>
+              <p className="text-2xl font-semibold text-gray-900 dark:text-white">₦{finalPrice}</p>
             </div>
           </div>
         </div>
       </div>
 
-      <section className="px-4 pb-10">
-        <div className="p-5 border border-gray-600/30 rounded-xl bg-[#1A1A1A]">
+      <section className="px-4 pb-10 ">
+        <div className="p-5 border border-gray-600/30 rounded-xl">
           {/* Thumbnail Row */}
           <div className="flex gap-3 overflow-x-auto mb-6 p-2 border border-gray-600/30 rounded-xl bg-black/20">
             {images.map((img, index) => (
@@ -103,7 +103,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 key={index}
                 src={img}
                 onClick={() => setCurrentIndex(index)}
-                className={`h-30 w-30 md:w-full object-cover rounded-lg cursor-pointer border ${
+                className={`h-30 w-30 md:w-full dark:bg-[#1A1A1A] bg-white object-cover rounded-lg cursor-pointer border ${
                   index === currentIndex ? "border-[#703BF7]" : "border-gray-600/30"
                 }`}
               />
@@ -117,7 +117,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <img
                   key={index}
                   src={img}
-                  className="w-full h-[450px] object-cover rounded-xl"
+                  className="w-full dark:bg-[#1A1A1A] bg-white h-[450px] object-cover rounded-xl"
                 />
               ))}
             </div>
@@ -127,7 +127,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
               <button
                 onClick={prevImages}
                 disabled={currentIndex === 0}
-                className="p-2 rounded-full border border-gray-600 disabled:opacity-30 bg-[#1A1A1A]"
+                className="p-2 rounded-full border border-gray-600 disabled:opacity-30 bg-gray-600"
               >
                 <FiChevronLeft size={15} />
               </button>
@@ -147,7 +147,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
               <button
                 onClick={nextImages}
                 disabled={currentIndex >= images.length - step}
-                className="p-2 rounded-full border border-gray-600 disabled:opacity-30 bg-[#1A1A1A]"
+                className="p-2 rounded-full border border-gray-600 disabled:opacity-30 bg-gray-600"
               >
                 <FiChevronRight size={15} />
               </button>
@@ -159,13 +159,13 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
       <section>
         {/* Property Video Section */}
        {property?.videoUrl && (
-          <div className="px-4 pb-10">
-            <div className="p-5 border border-gray-600/30 rounded-xl bg-[#1A1A1A]">
-              <h2 className="text-2xl font-semibold mb-4">
+          <div className="px-4 pb-10 ">
+            <div className="p-5 border border-gray-600/30 rounded-xl">
+              <h2 className="text-2xl text-gray-900 dark:text-white font-semibold mb-4">
                 Property Video Tour
               </h2>
 
-              <div className="relative w-full h-[70vh] aspect-video rounded-xl overflow-hidden border border-gray-600/30 bg-black">
+              <div className="relative w-full h-[70vh] aspect-video rounded-xl overflow-hidden border border-gray-600/30 ">
                 <video
                   src={property.videoUrl}
                   controls
@@ -178,39 +178,39 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
       </section>
 
       <section className="md:flex justify-between gap-6 w-[97%] mx-auto mb-10 md:flex-row flex-col space-y-6 md:space-y-0">
-      <div className="px-4 py-10 border border-gray-600/30 rounded-xl flex-1 h-fit">
+      <div className="px-4 py-10 border border-gray-600/30 rounded-xl flex-1 h-fit dark:bg-[#1A1A1A] bg-white">
           {/* Description */}
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold mb-3">Description</h2>
-            <p className="text-gray-300 leading-relaxed">
+            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Description</h2>
+            <p className="text-gray-800 dark:text-gray-400 leading-relaxed">
               {property?.description}</p>
           </div>
   
           {/* Property Details */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-gray-600/30 pt-2">
             <div className="flex flex-col px-2 ">
-              <span className="text-gray-400 mt-1 flex items-center gap-1"><FaBed/>Bedrooms</span>
-              <span className="text-xl font-semibold">{property?.bedrooms}</span> 
+              <span className="text-gray-800 dark:text-gray-400 mt-1 flex items-center gap-1"><FaBed/>Bedrooms</span>
+              <span className="text-xl font-semibold text-gray-900 dark:text-white">{property?.bedrooms}</span> 
             </div>
             <div className="flex flex-col border-l border-gray-600/30 px-2">
-               <span className="text-gray-400 mt-1 flex items-center gap-1"><FaBath /> Bathrooms</span>
-              <span className="text-xl font-semibold">{property?.bathrooms}</span>
+               <span className="text-gray-800 dark:text-gray-400 mt-1 flex items-center gap-1"><FaBath /> Bathrooms</span>
+              <span className="text-xl font-semibold text-gray-900 dark:text-white">{property?.bathrooms}</span>
             </div>
              <div className="flex flex-col sm:border-l border-gray-600/30 px-2">
-               <span className="text-gray-400 mt-1 flex  items-center gap-1"><FaHome/>Type</span>
-              <span className="text-xl font-semibold">{property?.type}</span>
+               <span className="text-gray-800 dark:text-gray-400 mt-1 flex  items-center gap-1"><FaHome/>Type</span>
+              <span className="text-xl font-semibold text-gray-900 dark:text-white">{property?.type}</span>
             </div>
           </div>
       </div>
 
       {/* Key Features */}
-      <div className="px-4 py-6 border border-gray-600/30 rounded-xl flex-1 space-y-3 h-fit">
-        <h2 className="text-2xl font-semibold mb-3">Key Features and Amenities</h2>
+      <div className="px-4 py-6 dark:bg-[#1A1A1A] bg-white border border-gray-600/30 rounded-xl flex-1 space-y-3 h-fit">
+        <h2 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">Key Features and Amenities</h2>
         <ul className="space-y-4">
           {property?.keyFeatures.map((feature, index) => (
             <li key={index} className="flex items-center gap-2 border-[#703BF7] border-l pl-2 bg-linear-to-r from-black/20 to-neutral  p-2">
-              <span className="text-white">< FaBolt  /></span>
-              <span>{feature}</span>
+              <span className="text-gray-700 dark:text-gray-300">< FaBolt  /></span>
+              <span className="text-gray-700 dark:text-gray-300">{feature}</span>
             </li>
           ))}
         </ul>
@@ -225,34 +225,34 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
             className="w-13 h-13 object-contain"
           />
 
-          <h1 className="text-white md:text-4xl text-3xl">Inquire About {property?.name} </h1>
+          <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">Inquire About {property?.name} </h1>
 
-          <p className="text-gray-400 text-[14px] max-w-[95%]">
+          <p className="text-gray-800 dark:text-gray-400 text-[14px] max-w-[95%]">
            Interested in this property? Fill out the form below, and our real estate experts will get back to you with more details, including scheduling a viewing and answering any questions you may have.
           </p>
         </div>
 
-        <div className=" p-6 bg-[#1A1A1A] border border-gray-600/30 rounded-xl text-white flex-2">
-          <h2 className="text-xl font-semibold mb-6">Send Us a Message</h2>
+        <div className=" p-6 dark:bg-[#1A1A1A] bg-white border border-gray-600/30 rounded-xl text-white flex-2">
+          <h2 className="text-xl font-semibold mb-6 text-gray-900 dark:text-white">Send Us a Message</h2>
 
-          <form className="space-y-5">
+          <form className="space-y-5 dark:bg-[#1A1A1A] bg-white">
             {/* First & Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm mb-1 block">First Name</label>
+                <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">First Name</label>
                 <input
                   type="text"
                   placeholder="Enter First Name"
-                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
 
               <div>
-                <label className="text-sm mb-1 block">Last Name</label>
+                <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">Last Name</label>
                 <input
                   type="text"
                   placeholder="Enter Last Name"
-                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
             </div>
@@ -260,53 +260,54 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
             {/* Email & Phone */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm mb-1 block">Email</label>
+                <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">Email</label>
                 <input
                   type="email"
                   placeholder="Enter your Email"
-                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
 
               <div>
-                <label className="text-sm mb-1 block">Phone</label>
+                <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">Phone</label>
                 <input
                   type="tel"
                   placeholder="Enter Phone Number"
-                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7]"
+                  className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
                 />
               </div>
             </div>
 
             {/* Selected Property */}
             <div>
-              <label className="text-sm mb-1 block">Selected Property</label>
+              <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">Selected Property</label>
               <input
                 type="text"
                 value={`${property?.name}, ${property?.location}`}
                 readOnly
-                className="w-full border border-gray-600/30 rounded-md px-4 py-2 text-sm text-gray-300 focus:outline-none"
+                className="w-full border border-gray-600/30 rounded-md px-4 py-2 text-s focus:outline-none text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
             {/* Message */}
             <div>
-              <label className="text-sm mb-1 block">Message</label>
+              <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">Message</label>
               <textarea
                 rows={4}
                 placeholder="Enter your Message here..."
-                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7]"
+                className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
               />
             </div>
 
             {/* Agreement */}
-              <div className="sm:col-span-2 flex items-center gap-3">
-                <input type="checkbox" className="mt-0.5" />
-                <p className="text-gray-400 text-sm">
-                  I agree with the <span className="text-white underline">Terms</span> and{" "}
-                  <span className="text-white underline">Policy</span>
-                </p>
-              </div>
+            <div className="sm:col-span-2 flex items-center gap-3">
+              <input type="checkbox" className="mt-0.5" />
+              <p className="text-gray-900 dark:text-white text-sm">
+                I agree with the{" "}
+                <span className="text-gray-900 dark:text-white underline">Terms</span> and{" "}
+                <span className="text-gray-900 dark:text-white underline">Policy</span>
+              </p>
+             </div>
 
               {/* Submit Button */}
               <div className="sm:col-span-2 flex items-center justify-end">

@@ -173,7 +173,7 @@ function PropertyForm() {
   return (
     <div className="">
       <Navbar />
-      <div className=" p-5 md:p-8">
+      <div className="bg-gray-300 dark:bg-black/30 p-5 md:p-8">
         {/* Header */}
         <div className=" bg-black/30 rounded-lg shadow-md p-6 mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <h1 className="text-3xl font-bold">
@@ -461,7 +461,9 @@ function PropertyForm() {
           </div>
         </div>
       </div>
-      <Footer />
+      <section className="bg-gray-300 dark:bg-black/30">
+        <Footer />
+      </section>
     </div>
   );
 }

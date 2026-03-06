@@ -35,7 +35,9 @@ function Footer() {
           <div className="mr-[5%]  space-y-4">
             <p className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">
               <img src={logo} alt="logo" className="h-10 mr-1" /><span className="text-black dark:text-white">RewaCity</span></p>
-              <label className="text-black dark:text-white">Get updates about new properties</label>
+              <div>
+                <div className="text-black dark:text-white">Get updates about new properties</div>
+              </div>
             <form className="flex items-center p-2 rounded overflow-hidden border dark:border-gray-400/30 border-gray-900 lg:w-[250px] w-full">
               <input
                 type="email"

@@ -1,6 +1,6 @@
 import Navbar from "../Components/Navbar"
 import hero from "/logo/Image (1).png"
-import { FaStar, FaUsers, FaShieldAlt,FaGraduationCap, FaTwitter } from "react-icons/fa";
+import { FaStar, FaUsers, FaShieldAlt,FaGraduationCap, FaLinkedin } from "react-icons/fa";
 import Entericon from "/logo/Send.png";
 import type { ValueItem,Step,TeamMember, AchievementItem } from "../types";
 import Footer from "../Components/Footer";
@@ -343,7 +343,7 @@ function About() {
 
                 {/* Floating Twitter Icon */}
                 <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#703BF7] p-1 rounded-full shadow-md cursor-pointer hover:bg-purple-600">
-                  <FaTwitter className="text-white w-9 h-5" />
+                  <FaLinkedin className="text-white w-7 h-7 p-1" />
                 </div>
               </div>
 

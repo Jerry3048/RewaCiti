@@ -176,7 +176,7 @@ function PropertySearchSection() {
       </div>
 
       <div className="bg-gray-300 dark:bg-black/30">
-        <div className="pt-8 w-[99%] mx-auto">
+        <div className="pt-8 w-[98%] mx-auto">
           {/* Filters Container */}
           <div
             className={`md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-0 ${showFilters ? "block" : "hidden"}

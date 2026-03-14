@@ -11,9 +11,9 @@ import PropertyDetails from "./Pages/PropertyDetails.tsx";
 import Service from "./Pages/Service";
 import Contact from "./Pages/Contact";
 import StudentHousing from "./Pages/Studentarea";
-import Admindashboard from "./Pages/Admindashboard";
-import PropertyForm from "./Pages/PropertyForm";
-import Login from "./Pages/Login";
+// import Admindashboard from "./Pages/Admindashboard";
+// import PropertyForm from "./Pages/PropertyForm";
+// import Login from "./Pages/Login";
 import NotFound from "./Pages/404Page";
 import TermsPolicies from "./Pages/Terms&Policies";
 
@@ -41,9 +41,9 @@ function App() {
         <Route path="/Service" element={<Service />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Studentarea" element={<StudentHousing />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} />
         <Route path="/Admindashboard" element={<Admindashboard />} />
-        <Route path="/property-form" element={<PropertyForm />} />
+        <Route path="/property-form" element={<PropertyForm />} /> */}
         <Route path="*" element={<NotFound />} />
         <Route path="/terms-policies" element={<TermsPolicies />} />
       </Routes>

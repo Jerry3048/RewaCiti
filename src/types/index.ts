@@ -1,5 +1,5 @@
 export interface Property {
-  id: number;
+  id: string;
   name: string;
   img: string;
   images: string[];
@@ -8,7 +8,7 @@ export interface Property {
   bathrooms: number | string;
   type: string;
   price: number;
-  createdBy: number; 
+  createdBy: number | string; 
   location: {
     area: string;
     city: string;

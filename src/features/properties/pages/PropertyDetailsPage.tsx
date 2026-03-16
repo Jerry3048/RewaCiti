@@ -12,8 +12,14 @@ const slugify = (text: string) =>
 
 function PropertyDetails() {
   const { name } = useParams();
-  const { properties } = usePropertyStore();
+  const { properties, fetchProperties, loading } = usePropertyStore();
   const property = properties.find((p) => slugify(p.name) === name);
+
+  useEffect(() => {
+    if (properties.length === 0) {
+      fetchProperties();
+    }
+  }, [properties.length, fetchProperties]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [step, setStep] = useState(window.innerWidth < 768 ? 1 : 2);
@@ -95,6 +101,14 @@ function PropertyDetails() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  if (loading && properties.length === 0) {
+    return (
+      <div className="bg-black/30 min-h-screen flex items-center justify-center">
+        <p className="text-center text-white py-10">Loading property data...</p>
+      </div>
+    );
+  }
 
   if (!property) {
     return (

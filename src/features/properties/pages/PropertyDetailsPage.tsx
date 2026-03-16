@@ -326,6 +326,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">First Name</label>
                 <input
                   type="text"
+                  placeholder="Enter First Name"
                   required
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
@@ -338,6 +339,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <input
                   type="text"
                   placeholder="Enter Last Name"
+                  required
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
@@ -352,6 +354,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <input
                   type="email"
                   placeholder="Enter your Email"
+                  required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
@@ -363,6 +366,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
                 <input
                   type="tel"
                   placeholder="Enter Phone Number"
+                  required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-2 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"
@@ -387,6 +391,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
               <textarea
                 rows={4}
                 placeholder="Enter your Message here..."
+                required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 className="w-full bg-gray-600/30 border border-gray-600/30 rounded-md px-4 py-3 text-sm focus:outline-none focus:border-[#703BF7] text-gray-900 dark:text-white dark:placeholder-gray-400 placeholder-gray-900/70"

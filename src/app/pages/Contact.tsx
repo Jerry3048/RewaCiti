@@ -67,11 +67,11 @@ function Contact() {
   const services1 = [
     {
       img: "/logo/servicecontainer/Icon Container (17).png",
-      text: "RewaCitty@yahoo.com",
+      text: "RewaCity@yahoo.com",
     },
     {
       img: "/logo/servicecontainer/Icon Container (16).png",
-      text: "+1 (123) 456-7890",
+      text: "+234 701 896 0275",
     },
     {
       img: "/logo/servicecontainer/Icon Container (15).png",
@@ -379,7 +379,7 @@ function Contact() {
               className="flex items-center gap-3 text-gray-300 hover:text-[#703BF7] transition bg-black p-2 px-4 rounded-full w-full border border-gray-600/70 md:w-fit justify-center"
             >
               <FaPhone />
-              <span>+1 (123) 456-7890</span>
+              <span>+234 701 896 0275</span>
             </a>
 
             {/* City */}

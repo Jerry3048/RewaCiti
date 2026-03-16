@@ -56,16 +56,16 @@ function Footer() {
                   <h3 className="dark:text-gray-400 text-gray-600 font-semibold mb-5"><Link to="/">Home</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                      <Link to="/#features" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Features</Link>
+                      <Link to="/#features" className="hover:text-[#703BF7] text-black dark:text-white dark:hover:text-[#703BF7] cursor-pointer">Features</Link>
                     </li>
                     <li>
-                      <Link to="/#properties" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Properties</Link>
+                      <Link to="/#properties" className="hover:text-[#703BF7] text-black dark:text-white dark:hover:text-[#703BF7] cursor-pointer">Properties</Link>
                     </li>
                     <li>
-                      <Link to="/#testimonials" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Testimonials</Link>
+                      <Link to="/#testimonials" className="hover:text-[#703BF7] text-black dark:text-white dark:hover:text-[#703BF7] cursor-pointer">Testimonials</Link>
                     </li>
                     <li>
-                      <Link to="/#faq" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">FAQ</Link>
+                      <Link to="/#faq" className="hover:text-[#703BF7] text-black dark:text-white dark:hover:text-[#703BF7] cursor-pointer">FAQ</Link>
                     </li>
                   </ul>
                   <hr className="my-4 dark:border-gray-400/30 border-gray-900/30 md:hidden" />
@@ -76,19 +76,19 @@ function Footer() {
                   <h3 className="dark:text-gray-400 text-gray-600 font-semibold mb-5"><Link to="/About">About Us</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <Link to="/About#Journey" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Story</Link>
+                        <Link to="/About#Journey" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Our Story</Link>
                     </li>
                     <li>
-                      <Link to="/About#Values" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Values</Link>
+                      <Link to="/About#Values" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Our Values</Link>
                     </li>
                     <li>
-                      <Link to="/About#Achievements" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Achievements</Link>
+                      <Link to="/About#Achievements" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Our Achievements</Link>
                     </li>
                     <li>
-                      <Link to="/About#Process" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">How it work</Link>
+                      <Link to="/About#Process" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">How it work</Link>
                     </li>
                     <li>
-                      <Link to="/About#Team" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Team</Link>
+                      <Link to="/About#Team" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Our Team</Link>
                     </li>
                   </ul>
                   <hr className="my-4 dark:border-gray-400/30 border-gray-900/30 md:hidden" />
@@ -99,10 +99,10 @@ function Footer() {
                   <h3 className="dark:text-gray-400 text-gray-600 font-semibold mb-5"><Link to="/Properties">Properties</Link></h3>
                   <ul className="space-y-5 text-sm">
                     <li>
-                        <Link to="/Properties#Categories" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Categories</Link>
+                        <Link to="/Properties#Categories" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Categories</Link>
                     </li>
                     <li>
-                      <Link to="/Properties#Portfolio" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Portfolio</Link>
+                      <Link to="/Properties#Portfolio" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Portfolio</Link>
                     </li>
                   </ul>
                   <hr className="my-4 dark:border-gray-400/30 border-gray-900/30 md:hidden" />
@@ -111,13 +111,13 @@ function Footer() {
                     <h3 className="dark:text-gray-400 text-gray-600 font-semibold mb-5"><Link to="/Contact">Contact Us</Link></h3>
                     <ul className="space-y-5 text-sm">
                       <li>
-                          <Link to="/Contact#Contactinfo" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact info</Link>
+                          <Link to="/Contact#Contactinfo" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7] ">Contact info</Link>
                       </li>
                       <li>
-                          <Link to="/Contact#Contactform" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact Form</Link>
+                          <Link to="/Contact#Contactform" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Contact Form</Link>
                       </li>
                       <li>
-                        <Link to="/Contact#Ouroffices" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Offices</Link>
+                        <Link to="/Contact#Ouroffices" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Our Offices</Link>
                       </li>
                     </ul>
                     <hr className="my-4 dark:border-gray-400/30 border-gray-900/30 md:hidden" />
@@ -129,16 +129,16 @@ function Footer() {
                   <h3 className="dark:text-gray-400 text-gray-600 font-semibold mb-5"><Link to="/Service">Services</Link></h3>
                   <ul className="space-y-5 text-sm">
                      <li>
-                      <Link to="/Service#whatweoffer" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">What We Offer</Link>
+                      <Link to="/Service#whatweoffer" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">What We Offer</Link>
                     </li>
                     <li>
-                        <Link to="/Service#valuation" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Valuation Mastery</Link>
+                        <Link to="/Service#valuation" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Valuation Mastery</Link>
                     </li> 
                     <li>
-                      <Link to="/Service#Management" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Property Management</Link>
+                      <Link to="/Service#Management" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Property Management</Link>
                     </li>
                     <li>
-                      <Link to="/Service#marketing" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Strategic Marketing</Link>
+                      <Link to="/Service#marketing" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Strategic Marketing</Link>
                     </li>
                   </ul>
                   <hr className="my-4 dark:border-gray-400/30 border-gray-900/30 md:hidden" />
@@ -149,13 +149,13 @@ function Footer() {
                   <h3 className="dark:text-gray-400 text-gray-600 font-semibold mb-5"><Link to="/Contact">Contact Us</Link></h3>
                   <ul className="space-y-5 text-sm">
                       <li>
-                          <Link to="/Contact#Contactinfo" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact info</Link>
+                          <Link to="/Contact#Contactinfo" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7] ">Contact info</Link>
                       </li>
                       <li>
-                          <Link to="/Contact#Contactform" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Contact Form</Link>
+                          <Link to="/Contact#Contactform" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Contact Form</Link>
                       </li>
                       <li>
-                        <Link to="/Contact#Ouroffices" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer">Our Offices</Link>
+                        <Link to="/Contact#Ouroffices" className="hover:text-[#703BF7] text-black dark:text-white cursor-pointer dark:hover:text-[#703BF7]">Our Offices</Link>
                       </li>
                     </ul>
                   <hr className="my-4 dark:border-gray-400/30 border-gray-900/30 md:hidden" />
@@ -171,7 +171,7 @@ function Footer() {
             {/* Left side: Year and Terms */}
             <div className="text-gray-900 dark:text-gray-500 text-sm flex flex-col md:flex-row items-center gap-2">
               <span>© {currentYear} RewaCiti. All rights reserved.</span>
-              <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-gray-500 text-sm">
+              <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-gray-500 text-sm dark:hover:text-[#703BF7] cursor-pointer">
                 Terms & Conditions
               </a>
             </div>

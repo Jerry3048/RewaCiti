@@ -67,7 +67,7 @@ function Contact() {
   const services1 = [
     {
       img: "/logo/servicecontainer/Icon Container (17).png",
-      text: "RewaCity@yahoo.com",
+      text: "rewaCity@yahoo.com",
     },
     {
       img: "/logo/servicecontainer/Icon Container (16).png",

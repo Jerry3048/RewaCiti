@@ -6,7 +6,7 @@ const TermsPolicy = () => {
     <div className="bg-gray-100 dark:bg-black/30 min-h-screen">
       <Navbar />
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 py-8 text-gray-800 dark:text-gray-200">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 text-center">
           Terms of Use & Privacy Policy
         </h1>

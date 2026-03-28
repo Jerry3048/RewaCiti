@@ -174,14 +174,7 @@ function Studentarea() {
       page * ITEMS_PER_PAGE + ITEMS_PER_PAGE,
     );
 
-    // Dropdown unique options
-    const uniqueLocations = Array.from(
-      new Set(
-        properties.map(
-          (p) => `${p.location.area}, ${p.location.city}, ${p.location.state}`,
-        ),
-      ),
-    );
+    
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
 
   if (loading) {
@@ -451,7 +444,7 @@ function Studentarea() {
             />
 
             <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">
-              Let's Make it Happen
+              Can't find your preference?
             </h1>
 
             <p className="text-gray-800 dark:text-gray-400 text-[14px] max-w-[95%]">
@@ -505,19 +498,14 @@ function Studentarea() {
             {/* Preferred Location */}
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Location</label>
-              <select
+              <input
+                type="text"
+                placeholder="Enter Prefered Location"
                 required
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
-                value={preferedLocation}
+                value={name}
                 onChange={(e) => setPreferedLocation(e.target.value)}
-              >
-                <option value="" disabled hidden>
-                  Select Location
-                </option>
-                {uniqueLocations.map((loc, idx) => (
-                  <option key={idx} value={loc}>{loc}</option>
-                ))}
-              </select>
+                className="w-full mt-1 p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white border border-gray-600/70 focus:outline-none dark:placeholder-gray-400 placeholder-gray-900/70"
+              />
             </div>
 
             {/* Property Type */}
@@ -542,7 +530,7 @@ function Studentarea() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">No of Bedrooms</label>
               <input
-                type="number"
+                type="number||text"
                 placeholder="Enter Number of Bedrooms"
                 required
                 min={1}
@@ -587,9 +575,9 @@ function Studentarea() {
 
             {/* Message */}
             <div className="sm:col-span-2 lg:col-span-4">
-              <label className="text-gray-700 dark:text-gray-300 text-sm">Message</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Describe What You Want</label>
               <textarea
-                placeholder="Enter your Message here.."
+                placeholder="Enter your Description here.."
                 rows={4}
                 required
                 value={message}

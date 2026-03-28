@@ -153,3 +153,26 @@ export interface SabiFlowProduct {
   createdAt?: string;
   updatedAt?: string;
 }
+
+export interface Inspection {
+  id: string;
+  propertyId: string;
+  propertyName: string;
+  userName: string;
+  userEmail: string;
+  userPhone: string;
+  date: string;
+  time: string;
+  status: "pending" | "confirmed" | "completed" | "cancelled";
+  paymentStatus: "pending" | "paid" | "failed";
+  amount: number;
+  reference: string;
+  location: string;
+}
+
+export interface InspectionStore {
+  inspections: Inspection[];
+  loading: boolean;
+  addInspection: (inspection: Omit<Inspection, "id" | "status" | "paymentStatus">) => void;
+  updatePaymentStatus: (reference: string, status: "paid" | "failed") => void;
+}

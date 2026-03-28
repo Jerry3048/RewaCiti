@@ -20,21 +20,7 @@ function PropertyCard({ property }: PropertyCardProps) {
     return words.length <= limit ? text : words.slice(0, limit).join(" ");
   }
 
-  const getProfitMultiplier = (price:number) => {
-    if (price < 50000) {
-    return 1.12;
-    }
-    else if (price < 200000) {
-    return 1.2;
-    }
-    else {
-    return 1.05;
-    }
-   };
- 
-   const price = property?.price ?? 0;
-   const finalPrice = price * getProfitMultiplier(price);
-
+  const price = property?.price ?? 0;
   return (
     <div
   className="
@@ -114,7 +100,7 @@ function PropertyCard({ property }: PropertyCardProps) {
   {/* Price + Button */}
   <div className="flex justify-between items-center">
     <span className="text-lg font-bold text-[#703BF7]">
-      ₦{finalPrice.toFixed(0)}
+      ₦{price.toLocaleString()}
     </span>
 
     <NavLink

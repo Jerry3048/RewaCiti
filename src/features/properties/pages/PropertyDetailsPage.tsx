@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { FaBed, FaBath, FaHome, FaBolt  } from "react-icons/fa";
 import Footer from "../../../shared/components/Layout/Footer";
 import axios from "axios";
+import BookInspectionModal from "../../inspections/components/BookInspectionModal";
 
 const slugify = (text: string) =>
   text.toLowerCase().replace(/\s+/g, "-");
@@ -32,6 +33,7 @@ function PropertyDetails() {
   const [message, setMessage] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isInspectionModalOpen, setIsInspectionModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,9 +52,9 @@ function PropertyDetails() {
     const payload = {
       companyId: "69b4712ce95a2df514b1c789",
       pipelineId: "69b49c7541d35d158e336621",
-      title: `${fullName} interested in ${property.name} (₦${finalPrice.toLocaleString()})`,
+      title: `${fullName} interested in ${property.name} (₦${price.toLocaleString()})`,
       name: fullName,
-      amount: `(₦${finalPrice.toLocaleString()})`,
+      amount: `(₦${price.toLocaleString()})`,
       email: email,
       phone: phone,
       address: `${property.location.area}, ${property.location.city}, ${property.location.state}`,
@@ -122,17 +124,7 @@ function PropertyDetails() {
     );
   }
 
-   const getProfitMultiplier = (price:number) => {
-    if (price < 50000) {
-    return 1.12;
-    }
-    else if (price < 200000) {
-    return 1.2;
-    }
-    else {
-    return 1.05;
-    }
-   };
+const price = property?.price || 0;
 
   const images = property?.images || [];
   
@@ -153,7 +145,7 @@ function PropertyDetails() {
       setCurrentIndex(currentIndex - step);
     }
   };
-const finalPrice = property?.price ? property.price * getProfitMultiplier(property.price) : 0;
+
   return (
     <div className="bg-gray-300 dark:bg-black/30">
       <Navbar />
@@ -163,7 +155,7 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
         <div className="md:flex gap-3 items-center px-4 py-6 whitespace-nowrap">
           <h1 className="text-2xl font-semibold mb-1 text-gray-900 dark:text-white">{property?.name}</h1>
 
-          <div className="flex justify-between md:items-center w-full mt-4 md:mt-0">
+          <div className="md:flex justify-between md:items-center w-full mt-4 md:mt-0">
             {/* Location */}
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -189,13 +181,27 @@ const finalPrice = property?.price ? property.price * getProfitMultiplier(proper
             </a>
 
             {/* Price */}
-            <div className="flex md:flex-col items-center md:items-start">
-              <p className="text-xs text-gray-800 dark:text-gray-400 hidden md:flex">Price</p>
-              <p className="text-2xl font-semibold text-gray-900 dark:text-white">₦{finalPrice}</p>
+            <div className="flex gap-4 items-center justify-between mt-4 md:mt-0">
+              <div className="flex md:flex-col items-center md:items-start">
+                <p className="text-xs text-gray-800 dark:text-gray-400 hidden md:flex">Price</p>
+                <p className="text-2xl font-semibold text-gray-900 dark:text-white">₦{price.toLocaleString()}</p>
+              </div>
+              <button
+                onClick={() => setIsInspectionModalOpen(true)}
+                className="bg-[#703BF7] hover:bg-[#5c2fe0] text-white px-6 py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-[#703BF7]/20"
+              >
+                Book Inspection
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      <BookInspectionModal
+        property={property}
+        open={isInspectionModalOpen}
+        onOpenChange={setIsInspectionModalOpen}
+      />
 
       <section className="px-4 pb-10 ">
         <div className="p-2 border border-gray-600/30 rounded-xl">

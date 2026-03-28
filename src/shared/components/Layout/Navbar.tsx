@@ -54,7 +54,7 @@ const Navbar = () => {
       <hr className="h-px bg-gray-600 border-0 w-full" />
 
       {/* MAIN NAVBAR */}
-      <div className="max-w-[90%] mx-auto">
+      <div className="max-w-[95%] mx-auto">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <NavLink to="/" className="flex items-center space-x-2 text-gray-800 text-[30px] font-bold dark:text-white">

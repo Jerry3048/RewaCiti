@@ -179,13 +179,7 @@ function PropertySearchSection() {
       ),
     ),
   );
-  //   const preferedLocations = Array.from(
-  //   new Set(
-  //     properties.map(
-  //       (p) => `${p.location.state}, ${p.location.city}, ${p.location.area}`,
-  //     ),
-  //   ),
-  // );
+
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
   const uniqueBedrooms = Array.from(
     new Set(properties.map((p) => p.bedrooms)),
@@ -459,7 +453,7 @@ function PropertySearchSection() {
             />
 
             <h1 className="text-gray-900 dark:text-white md:text-4xl text-3xl">
-              Let's Make it Happen
+              Can't find your preference?
             </h1>
 
             <p className="text-gray-800 dark:text-gray-400 text-[14px] max-w-[95%]">
@@ -511,23 +505,6 @@ function PropertySearchSection() {
             </div>
 
             {/* Preferred Location */}
-            {/* <div>
-              <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Location</label>
-              <select
-                required
-                className="p-3 rounded-lg dark:bg-black/70 bg-gray-300 text-gray-900 dark:text-white focus:outline-none border w-full border-gray-600/70"
-                value={preferedLocation}
-                onChange={(e) => setPreferedLocation(e.target.value)}
-              >
-                <option value="" disabled hidden>
-                  Select Location
-                </option>
-                {preferedLocations.map((loc, idx) => (
-                  <option key={idx} value={loc}>{loc}</option>
-                ))}
-              </select>
-            </div> */}
-
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">Preferred Location</label>
               <input
@@ -552,9 +529,45 @@ function PropertySearchSection() {
                 <option value="" disabled hidden>
                   Property Type
                 </option>
-                {uniqueTypes.map((t, idx) => (
-                  <option key={idx} value={t}>{t}</option>
-                ))}
+                <option value="Self Contain">Self Contain</option>
+                  <option value="Studio Apartment">Studio Apartment</option>
+                  <option value="Mini Flat (1 Bedroom)">Mini Flat (1 Bedroom)</option>
+                  <option value="2 Bedroom Flat">2 Bedroom Flat</option>
+                  <option value="3 Bedroom Flat">3 Bedroom Flat</option>
+                  <option value="4 Bedroom Flat">4 Bedroom Flat</option>
+                  <option value="Detached Bungalow">Detached Bungalow</option>
+                  <option value="Semi-Detached Bungalow">Semi-Detached Bungalow</option>
+                  <option value="Semi-Detached Duplex">Semi-Detached Duplex</option>
+                  <option value="Fully Detached Duplex">Fully Detached Duplex</option>
+                  <option value="Terrace Duplex">Terrace Duplex</option>
+                  <option value="Mansion">Mansion</option>
+                  <option value="Villa">Villa</option>
+                  <option value="Smart Home">Smart Home</option>
+                  <option value="Shared Apartment">Shared Apartment</option>
+                  <option value="Single Room (Shared)">Single Room (Shared)</option>
+                  <option value="Face-me-I-face-you">Face-me-I-face-you</option>
+                  <option value="Short Let Apartment">Short Let Apartment</option>
+                  <option value="Furnished Apartment">Furnished Apartment</option>
+                  <option value="Student Hostel">Student Hostel</option>
+                  <option value="Private Lodge">Private Lodge</option>
+
+                  {/* Commercial */}
+                  <option value="Shop">Shop</option>
+                  <option value="Office Space">Office Space</option>
+                  <option value="Co-working Space">Co-working Space</option>
+                  <option value="Warehouse">Warehouse</option>
+                  <option value="Event Hall">Event Hall</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Guest House">Guest House</option>
+
+                  {/* Land */}
+                  <option value="Residential Land">Residential Land</option>
+                  <option value="Commercial Land">Commercial Land</option>
+                  <option value="Agricultural Land">Agricultural Land</option>
+
+                  {/* Special */}
+                  <option value="Mixed-Use Property">Mixed-Use Property</option>
+                  <option value="Uncompleted Building">Uncompleted Building</option>
               </select>
             </div>
 
@@ -562,7 +575,7 @@ function PropertySearchSection() {
             <div>
               <label className="text-gray-700 dark:text-gray-300 text-sm">No of Bedrooms</label>
               <input
-                type="number"
+                type="number||text"
                 placeholder="Enter Number of Bedrooms"
                 required
                 min={1}
@@ -607,9 +620,9 @@ function PropertySearchSection() {
 
             {/* Message */}
             <div className="sm:col-span-2 lg:col-span-4">
-              <label className="text-gray-700 dark:text-gray-300 text-sm">Message</label>
+              <label className="text-gray-700 dark:text-gray-300 text-sm">Describe What You Want</label>
               <textarea
-                placeholder="Enter your Message here.."
+                placeholder="Enter your Description here.."
                 rows={4}
                 required
                 value={message}

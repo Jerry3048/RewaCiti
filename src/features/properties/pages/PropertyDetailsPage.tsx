@@ -212,7 +212,7 @@ const price = property?.price || 0;
                 >
                   Actions
                   <FiChevronDown
-                    className={`transition-transform duration-200${
+                    className={`transition-transform duration-200 ${
                       isDropdownOpen ? "rotate-180" : ""
                     }`}
                   />

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { usePaystackPayment } from "react-paystack";
 import { useInspectionStore } from "../store/useInspectionStore";
 import type { Property } from "../../../types";
 import { FiX, FiMapPin } from "react-icons/fi";
+import axios from "axios";
 
 interface BookInspectionModalProps {
   property: Property;
@@ -20,6 +20,7 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const addInspection = useInspectionStore((state) => state.addInspection);
   const updatePaymentStatus = useInspectionStore((state) => state.updatePaymentStatus);
@@ -39,46 +40,71 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
   };
 
   const amount = calculateFee(property.location.city);
-  const config = {
-    reference: new Date().getTime().toString(),
-    email: email,
-    amount: amount * 100, // Amount in kobo
-    publicKey: "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Replace with real public key
-  };
 
-  const initializePayment = usePaystackPayment(config);
-
-  const onSuccess = (response: { reference: string; status: string; trans: string }) => {
-    updatePaymentStatus(response.reference, "paid");
-    alert(`Inspection booked successfully! Reference: ${response.reference}`);
-    onOpenChange(false);
-  };
-
-
-  const onClose = () => {
-    updatePaymentStatus(config.reference, "failed");
-    alert("Payment cancelled or failed.");
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Add pending inspection to store
-    addInspection({
-      propertyId: property.id,
-      propertyName: property.name,
-      userName: `${firstName} ${lastName}`,
-      userEmail: email,
-      userPhone: phone,
-      date: new Date().toISOString().split('T')[0],
-      time: new Date().toLocaleTimeString(),
-      amount,
-      reference: config.reference,
-      location: `${property.location.area}, ${property.location.city}, ${property.location.state}`,
-    });
+    setIsSubmitting(true);
 
-    // Start Paystack payment
-    initializePayment({onSuccess, onClose});
+    const fullName = `${firstName} ${lastName}`.trim();
+    const reference = `demo_visit_${new Date().getTime()}`;
+    const propertyAddress = `${property.location.area}, ${property.location.city}, ${property.location.state}`;
+
+    const payload = {
+      companyId: "69b4712ce95a2df514b1c789",
+      pipelineId: "69b49c7541d35d158e336621",
+      title: `VISIT BOOKING: ${property.name} - ${fullName}`,
+      name: fullName,
+      amount: amount.toString(),
+      email: email,
+      phone: phone,
+      address: propertyAddress,
+      note: `Reference: ${reference}\nTask: Property Visit/Inspection\n\nFee Paid: ₦${amount.toLocaleString()}`,
+      customData: [
+        { label: "Property Name", value: property.name },
+        { label: "Booking Reference", value: reference },
+        { label: "Inspection Fee", value: `₦${amount.toLocaleString()}` },
+        { label: "Agent ID", value: property.createdBy.toString() },
+        { label: "Property Type", value: property.type }
+      ]
+    };
+
+    try {
+      // Simulate Processing Delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      // Send to SabiFlow CRM
+      await axios.post("https://api.sabiflow.com/api/crm/deals/guest", payload);
+
+      // Add to local store for UI tracking
+      addInspection({
+        propertyId: property.id,
+        propertyName: property.name,
+        userName: fullName,
+        userEmail: email,
+        userPhone: phone,
+        date: new Date().toISOString().split('T')[0],
+        time: new Date().toLocaleTimeString(),
+        amount,
+        reference: reference,
+        location: propertyAddress,
+      });
+
+      updatePaymentStatus(reference, "paid");
+      
+      alert(`Visit booked successfully! (Demo Mode)\nReference: ${reference}\nOur team will contact you within 24 hours.`);
+      onOpenChange(false);
+      
+      // Reset form
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+    } catch (error) {
+      console.error("Error submitting visit booking:", error);
+      alert("Failed to submit booking details to CRM. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -166,15 +192,14 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
 
             <button
               type="submit"
-              className="w-full bg-[#703BF7] hover:bg-[#5c2fe0] text-white font-medium py-3 rounded-md transition-colors mt-4"
+              disabled={isSubmitting}
+              className="w-full bg-[#703BF7] hover:bg-[#5c2fe0] text-white font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50"
             >
-              Pay & Book a Visit
+              {isSubmitting ? "Processing..." : "Pay & Book a Visit"}
             </button>
 
             <p className="text-xs dark:text-gray-400 text-gray-600 text-center italic mt-2">
-            <p>
               * Payment is non-refundable and covers transportation and logistics. However, a refund will only be issued if the issue arises from our side, such as the agent failing to show up or the property being unavailable (e.g., already sold or rented but not updated on the site).
-            </p>
             </p>
           </form>
         </Dialog.Content>

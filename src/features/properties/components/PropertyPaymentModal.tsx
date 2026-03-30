@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { usePaystackPayment } from "react-paystack";
 import { FiX, FiInfo, FiStar } from "react-icons/fi";
 import type { Property } from "../../../types";
+import axios from "axios";
 
 interface PropertyPaymentModalProps {
   property: Property;
@@ -22,38 +22,67 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const price = property.price || 0;
   const ourFee = price * 0.07;
   const agentFee = price * 0.93;
 
-  const config = {
-    reference: new Date().getTime().toString(),
-    email: email,
-    amount: price * 100, // Total price in kobo
-    publicKey: "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // Replace with real public key
-  };
-
-  const initializePayment = usePaystackPayment(config);
-
-  const onSuccess = (response: { reference: string; status: string; trans: string }) => {
-    alert(`Payment successful! Reference: ${response.reference}`);
-    onOpenChange(false);
-  };
-
-  const onClose = () => {
-    alert("Payment cancelled.");
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (rating === 0) {
       alert("Please rate our service before proceeding.");
       return;
     }
-    // In a real app, you'd send the rating and feedback to your backend here
-    console.log("Service Rating:", rating, "Feedback:", feedback);
-    initializePayment({onSuccess, onClose});
+    
+    setIsSubmitting(true);
+
+    const fullName = `${firstName} ${lastName}`.trim();
+    const reference = `demo_pay_${new Date().getTime()}`;
+
+    const payload = {
+      companyId: "69b4712ce95a2df514b1c789",
+      pipelineId: "69b49c7541d35d158e336621",
+      title: `PROPERTY PAYMENT: ${property.name} - ${fullName}`,
+      name: fullName,
+      amount: price.toString(),
+      email: email,
+      phone: phone,
+      address: `${property.location.area}, ${property.location.city}, ${property.location.state}`,
+      note: `Reference: ${reference}\nRating: ${rating}/5\nFeedback: ${feedback}\n\nBreakdown:\n- Our Fee (7%): ₦${ourFee.toLocaleString()}\n- Agent Fee (93%): ₦${agentFee.toLocaleString()}`,
+      customData: [
+        { label: "Property Name", value: property.name },
+        { label: "Payment Reference", value: reference },
+        { label: "Service Rating", value: `${rating} Stars` },
+        { label: "Our Fee (7%)", value: `₦${ourFee.toLocaleString()}` },
+        { label: "Agent Fee (93%)", value: `₦${agentFee.toLocaleString()}` },
+        { label: "Agent ID", value: property.createdBy.toString() }
+      ]
+    };
+
+    try {
+      // Simulate Payment Processing Delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      
+      // Send to SabiFlow
+      await axios.post("https://api.sabiflow.com/api/crm/deals/guest", payload);
+      
+      alert(`Payment successful! (Demo Mode)\nReference: ${reference}\nInformation sent to our team.`);
+      onOpenChange(false);
+
+      // Reset form
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setRating(0);
+      setFeedback("");
+    } catch (error) {
+      console.error("Error submitting payment details:", error);
+      alert("Payment simulated, but failed to send data to CRM. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -189,9 +218,10 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
 
             <button
               type="submit"
-              className="w-full bg-[#703BF7] hover:bg-[#5c2fe0] text-white font-medium py-3 rounded-md transition-colors mt-4"
+              disabled={isSubmitting}
+              className="w-full bg-[#703BF7] hover:bg-[#5c2fe0] text-white font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50"
             >
-              Pay Total: ₦{price.toLocaleString()}
+              {isSubmitting ? "Processing..." : `Pay Total: ₦${price.toLocaleString()}`}
             </button>
 
             <p className="text-[10px] dark:text-gray-400 text-gray-500 text-center italic mt-2">

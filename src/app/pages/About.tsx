@@ -142,7 +142,7 @@ function About() {
   return (
     <div>
         <Navbar />
-        <section className="relative flex flex-col md:flex-row bg-gray-300 dark:bg-black/30 py-6 px-4 lg:gap-10 md:gap-3" id="Journey">
+        <section className="relative flex flex-col md:flex-row bg-gray-300 dark:bg-black/30 py-4 px-4 lg:gap-10 md:gap-3" id="Journey">
           <div className="flex-1  flex flex-col justify-center space-y-6 z-10 order-last md:order-first ">
            <img
               src="/logo/Abstract Design (1).png"
@@ -164,7 +164,7 @@ function About() {
                 </div>
                 <div className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-600/30 text-gray-900 dark:text-white px-4 py-3 rounded w-full">
                   <p className="text-lg font-semibold">60+</p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Properties</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Properties for Clients</p>
                 </div>
                 <div className="bg-white dark:bg-[#1A1A1A] border border-gray-200 dark:border-gray-600/30 text-gray-900 dark:text-white px-4 py-3 rounded w-full col-span-2 md:col-span-1">
                   <p className="text-lg font-semibold">1+</p>
@@ -194,7 +194,7 @@ function About() {
       </div>
     </section>
 
-    <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0" id="Values">
+    <section className="bg-gray-300 dark:bg-black/30 py-3 px-4 lg:gap-12 flex flex-col md:flex-row gap-8 md:gap-0" id="Values">
         {/* LEFT SIDE — 1 PART WIDTH */}
         <div className="flex-1 flex flex-col justify-center space-y-6 z-10 ">
           <img
@@ -240,7 +240,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-10" id="Achievements">
+      <section className="bg-gray-300 dark:bg-black/30 py-3 px-4 lg:gap-10" id="Achievements">
          <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
@@ -273,7 +273,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-10" id="Process">
+      <section className="bg-gray-300 dark:bg-black/30 py-3 px-4 lg:gap-10" id="Process">
          <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"
@@ -316,7 +316,7 @@ function About() {
         </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 md:py-6 py-3 px-4 lg:gap-10 space-y-5" id="Team">
+      <section className="bg-gray-300 dark:bg-black/30 py-3 px-4 lg:gap-10 space-y-5" id="Team">
           <div className="flex-1 flex flex-col justify-center space-y-3 z-10 ">
           <img
             src="/logo/Abstract Design (1).png"

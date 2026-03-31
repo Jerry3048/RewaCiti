@@ -220,10 +220,10 @@ function Footer() {
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex p-2">
                 <FaFacebookF />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
+              <a href="https://x.com/RewaCiti_001" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
                 <FaTwitter />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-pink-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
+              <a href="https://www.instagram.com/rewaciti/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-pink-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
                 <FaInstagram />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">

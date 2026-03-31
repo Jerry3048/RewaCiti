@@ -100,9 +100,7 @@ const TermsPolicy = () => {
         </p>
 
         <p className="mt-2">
-          Payments are generally non-refundable. However, refunds may only be considered if the issue 
-          is directly caused by the platform, such as an agent failing to show up or a property being 
-          unavailable but still listed.
+          <strong>Payment is non-refundable and covers transportation and logistics. However, a refund will only be issued if the issue arises from our side, such as the agent failing to show up or the property being unavailable (e.g., already sold or rented but not updated on the site).</strong>
         </p>
       </section>
 

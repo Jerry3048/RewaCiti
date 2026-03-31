@@ -22,6 +22,7 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [agreed, setAgreed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const price = property.price || 0;
@@ -32,6 +33,11 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
     e.preventDefault();
     if (rating === 0) {
       alert("Please rate our service before proceeding.");
+      return;
+    }
+
+    if (!agreed) {
+      alert("Please agree to the Terms & Conditions");
       return;
     }
     
@@ -219,17 +225,33 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
               <p className="text-xs text-gray-500 italic">Your feedback helps us improve!</p>
             </div>
 
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
+              <p className="dark:text-white text-gray-900 text-sm">
+                I agree with the{" "}
+                <a href="/terms-policies" className="hover:text-[#703BF7] text-[#703BF7] underline">
+                  Terms & Conditions
+                </a>
+              </p>
+            </div>
+
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-[#703BF7] hover:bg-[#5c2fe0] text-white font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50"
+              disabled={!agreed || isSubmitting}
+              className={`w-full font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50 ${
+                agreed && !isSubmitting
+                  ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white"
+                  : "bg-gray-400 cursor-not-allowed text-gray-200"
+              }`}
             >
               {isSubmitting ? "Processing..." : `Pay Total: ₦${price.toLocaleString()}`}
             </button>
-
-            <p className="text-[10px] dark:text-gray-400 text-gray-500 text-center italic mt-2">
-              * By proceeding, you agree to our terms of service regarding property transactions.
-            </p>
           </form>
         </Dialog.Content>
       </Dialog.Portal>

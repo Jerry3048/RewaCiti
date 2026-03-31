@@ -20,6 +20,7 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [agreed, setAgreed] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const addInspection = useInspectionStore((state) => state.addInspection);
@@ -43,6 +44,12 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!agreed) {
+      alert("Please agree to the Terms & Conditions");
+      return;
+    }
+
     setIsSubmitting(true);
 
     const fullName = `${firstName} ${lastName}`.trim();
@@ -192,10 +199,30 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
               </div>
             </div>
 
+            <div className="flex items-center gap-3">
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
+              <p className="dark:text-white text-gray-900 text-sm">
+                I agree with the{" "}
+                <a href="/terms-policies" className="hover:text-[#703BF7] text-[#703BF7] underline">
+                  Terms & Conditions
+                </a>
+              </p>
+            </div>
+
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-[#703BF7] hover:bg-[#5c2fe0] text-white font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50"
+              disabled={!agreed || isSubmitting}
+              className={`w-full font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50 ${
+                agreed && !isSubmitting
+                  ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white"
+                  : "bg-gray-400 cursor-not-allowed text-gray-200"
+              }`}
             >
               {isSubmitting ? "Processing..." : "Pay & Book a Visit"}
             </button>

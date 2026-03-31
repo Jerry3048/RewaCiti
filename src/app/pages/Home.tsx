@@ -142,13 +142,13 @@ function Home() {
           </div>
       </section>
 
-      <section className="bg-gray-300 dark:bg-black/30 pb-5" id="properties">
+      <section className="bg-gray-300 dark:bg-black/30" id="properties">
         <PropertySection />
       </section>
-      <section className="bg-gray-300 dark:bg-black/30 pb-5" id="testimonials">
+      <section className="bg-gray-300 dark:bg-black/30" id="testimonials">
         <CommentSection/>
       </section>
-      <section className="bg-gray-300 dark:bg-black/30 pb-15" id="faq">
+      <section className="bg-gray-300 dark:bg-black/30 pb-10" id="faq">
         <FAQSection/>
       </section>
       <section className="bg-gray-300 dark:bg-black/30">

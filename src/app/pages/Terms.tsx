@@ -59,32 +59,52 @@ const TermsPolicy = () => {
           </p>
         </section>
 
-        {/* 5 PROPERTY VISITS */}
-        <section className="bg-white/90 dark:bg-[#1A1A1A] border rounded-xl p-6 mb-4">
-          <h2 className="text-xl font-semibold mb-2">5. Property Visits</h2>
+       {/* 5 PROPERTY VISITS */}
+      <section className="bg-white/90 dark:bg-[#1A1A1A] border rounded-xl p-6 mb-4">
+        <h2 className="text-xl font-semibold mb-2">5. Property Visits & Payments</h2>
 
-          <p>
-           All property visits require a visitation fee, which varies based on the property's location.
-            The exact fee will be displayed during the booking process.
-          </p>
+        <p>
+          All property visits require a visitation fee, which varies based on the property's location.
+          The exact fee will be displayed during the booking process.
+        </p>
 
-          <p className="mt-2">
-            All payments must be made strictly through the platform. Users are advised not to make
-            any payments directly to agents outside the platform.The platform is not responsible for any losses resulting from payments made outside the platform.
-            Any such transactions are done at the user's own risk.
-          </p>
+        <p className="mt-2">
+          <strong>All payments must be made strictly through the platform.</strong> This includes both visitation fees 
+          and any payments related to renting or purchasing a property. This ensures proper monitoring, 
+          transparency, and protection for all parties involved.
+        </p>
 
-          <p className="mt-2">
-            Visits must be booked at least <strong>48 hours in advance</strong> and are subject to confirmation.
-          </p>
+        <p className="mt-2">
+          Users are strongly advised not to make payments directly to agents outside the platform. 
+          RewaCiti will not be responsible for any loss, fraud, or dispute arising from off-platform transactions. 
+          Any such actions are carried out entirely at the user's own risk.
+        </p>
 
-          <p className="mt-2">
-           Payments are generally non-refundable. However, refunds may only be considered if the issue
-            is directly caused by the platform, such as an agent failing to show up or a property being
-            unavailable but still listed.
-          </p>
+        <p className="mt-2">
+          If you experience any form of misconduct, foul play, or unprofessional behavior from an agent, 
+          you are required to report it through the platform (via the appropriate reporting or actions page). 
+          This also includes cases where property details are inaccurate or misleading.
+        </p>
 
-        </section>
+        <p className="mt-2">
+          Any agent found engaging in fraudulent behavior, misconduct, or misleading listings after investigation 
+          may have their account <strong>red-flagged, suspended, or permanently banned</strong>, depending on the severity of the offense.
+        </p>
+
+        <p className="mt-2">
+          <strong>Any agent who conducts or attempts to conduct transactions outside the platform will have their account permanently banned.</strong>
+        </p>
+
+        <p className="mt-2">
+          Visits must be booked at least <strong>48 hours in advance</strong> and are subject to confirmation.
+        </p>
+
+        <p className="mt-2">
+          Payments are generally non-refundable. However, refunds may only be considered if the issue 
+          is directly caused by the platform, such as an agent failing to show up or a property being 
+          unavailable but still listed.
+        </p>
+      </section>
 
         {/* 6 RESPONSE TIME */}
         <section className="bg-white/90 dark:bg-[#1A1A1A] border rounded-xl p-6 mb-4">

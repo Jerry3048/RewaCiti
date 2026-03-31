@@ -32,7 +32,7 @@
   {
     "id": 7,
     "question": "How do I contact a property agent?",
-    "answer": "You can message the agent directly through the property details page before making any decision."
+    "answer": "You cannot contact a property agent directly. A property agent will reach out to you using the information you provided after you submit a request."
   },
   {
     "id": 8,
@@ -72,7 +72,7 @@
   {
     "id": 15,
     "question": "What should I do if I have issues with a property?",
-    "answer": "All communication should be done through the property details page before completing any transaction, as RewaCiti does not handle disputes after deals are made."
+    "answer": "All communication and transactions must be carried out through the platform. RewaCiti can only assist with issues if these guidelines are followed. We do not handle disputes arising from transactions conducted outside the platform or after the property has been collected."
   },
   {
   "id": 16,

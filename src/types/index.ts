@@ -35,6 +35,8 @@ export interface PropertyStore {
   nextPage: () => void;
   prevPage: () => void;
   setPage: (page: number) => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
   filterProperties: (filters: {
     location?: string;
     propertyType?: string;

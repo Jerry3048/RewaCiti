@@ -42,9 +42,20 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
         videoUrl: item.videoUrl || "",
       }));
 
+      const { searchQuery } = get();
+      let filtered = properties;
+      if (searchQuery) {
+        filtered = properties.filter((p) =>
+          p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.location.area.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.location.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.location.state.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+      }
+
       set({
         properties: properties,
-        filteredProperties: properties,
+        filteredProperties: filtered,
         loading: false,
         apiPage: apiPage,
         totalProperties: res.data.total || properties.length,
@@ -70,6 +81,23 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
 
   setPage: (page: number) => set({ page }),
 
+  searchQuery: "",
+  setSearchQuery: (query: string) => {
+    set({ searchQuery: query });
+    const { properties } = get();
+    if (!query) {
+      set({ filteredProperties: properties });
+    } else {
+      const filtered = properties.filter((p) => 
+        p.name.toLowerCase().includes(query.toLowerCase()) ||
+        p.location.area.toLowerCase().includes(query.toLowerCase()) ||
+        p.location.city.toLowerCase().includes(query.toLowerCase()) ||
+        p.location.state.toLowerCase().includes(query.toLowerCase())
+      );
+      set({ filteredProperties: filtered, page: 0 });
+    }
+  },
+
   // --- New: Filter properties ---
   filterProperties: (filters: {
     location?: string;
@@ -78,7 +106,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
     rooms?: number;
     buildYear?: number;
   }) => {
-    const { properties } = get();
+    const { properties, searchQuery } = get();
     const filtered = properties.filter((p) => {
       const priceNum = Number(String(p.price).replace(/[^0-9]/g, ""));
       const [minPrice, maxPrice] = filters.priceRange
@@ -91,9 +119,15 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
           ([p.location.area, p.location.city, p.location.state] as string[]).some(
             (v) => v === filters.location
           ));
+      
+      const searchMatch = !searchQuery || 
+        p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.location.area.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.location.city.toLowerCase().includes(searchQuery.toLowerCase());
 
       return (
         locationMatch &&
+        searchMatch &&
         (!filters.propertyType || p.type === filters.propertyType) &&
         (!filters.rooms || p.bedrooms === filters.rooms) &&
         // (!filters.buildYear || p.yearBuilt === filters.buildYear) &&

@@ -61,7 +61,7 @@ function PropertyCard({ property }: PropertyCardProps) {
   <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
     {expanded
       ? property.description
-      : truncateWords(property.description, 15)}
+      : truncateWords(property.description, 7)}
 
     {property.description.split(" ").length > 8 && (
       <button

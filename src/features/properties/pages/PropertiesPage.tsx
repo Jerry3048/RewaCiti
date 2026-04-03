@@ -130,7 +130,8 @@ function PropertySearchSection() {
         p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.description.toLowerCase().includes(searchTerm.toLowerCase())||
         p.location.city.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.location.area.toLowerCase().includes(searchTerm.toLowerCase());
+        p.location.area.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.location.state.toLowerCase().includes(searchTerm.toLowerCase());
 
       const matchesLocation = location ? p.location.state === location : true;
       const matchesType = type ? p.type === type : true;

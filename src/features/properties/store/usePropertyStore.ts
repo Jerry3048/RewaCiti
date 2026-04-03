@@ -91,6 +91,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
     } else {
       const filtered = properties.filter((p) => 
         p.name.toLowerCase().includes(query.toLowerCase()) ||
+        p.description.toLowerCase().includes(query.toLowerCase()) ||
         p.location.area.toLowerCase().includes(query.toLowerCase()) ||
         p.location.city.toLowerCase().includes(query.toLowerCase()) ||
         p.location.state.toLowerCase().includes(query.toLowerCase())
@@ -123,8 +124,10 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
       
       const searchMatch = !searchQuery || 
         p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         p.location.area.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.location.city.toLowerCase().includes(searchQuery.toLowerCase());
+        p.location.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        p.location.state.toLowerCase().includes(searchQuery.toLowerCase());
 
       return (
         locationMatch &&

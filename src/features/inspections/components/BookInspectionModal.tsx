@@ -4,6 +4,7 @@ import { useInspectionStore } from "../store/useInspectionStore";
 import type { Property } from "../../../types";
 import { FiX, FiMapPin } from "react-icons/fi";
 import axios from "axios";
+import { Link } from "react-router";
 
 interface BookInspectionModalProps {
   property: Property;
@@ -209,9 +210,9 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
               />
               <p className="dark:text-white text-gray-900 text-sm">
                 I agree with the{" "}
-                <a href="/terms-policies" className="hover:text-[#703BF7] text-[#703BF7] underline">
+                <Link to="/terms-policies" className="hover:text-[#703BF7] text-[#703BF7] underline">
                   Terms & Conditions
-                </a>
+                </Link>
               </p>
             </div>
 

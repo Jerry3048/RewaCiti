@@ -10,7 +10,7 @@ import PropertyCard from "../../features/properties/components/PropertyCard";
 import Footer from "../../shared/components/Layout/Footer";
 import { FiFilter } from "react-icons/fi";
 import useScrollToHash from "../../shared/hooks/useScrollToHash";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 function Studentarea() {
   useScrollToHash();
@@ -634,9 +634,9 @@ function Studentarea() {
               />
               <p className="text-gray-900 dark:text-white text-sm">
                 I agree with the{" "}
-                <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
+                <Link to="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
                   Terms & Conditions
-                </a>
+                </Link>
               </p>
             </div>
 

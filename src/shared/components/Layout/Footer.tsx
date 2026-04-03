@@ -210,9 +210,9 @@ function Footer() {
             {/* Left side: Year and Terms */}
             <div className="text-gray-900 dark:text-gray-500 text-sm flex flex-col md:flex-row items-center gap-2">
               <span>© {currentYear} RewaCiti. All rights reserved.</span>
-              <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-gray-500 text-sm dark:hover:text-[#703BF7] cursor-pointer">
+              <Link to="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-gray-500 text-sm dark:hover:text-[#703BF7] cursor-pointer">
                 Terms & Conditions
-              </a>
+              </Link>
             </div>
 
             {/* Right side: Social Media Icons */}

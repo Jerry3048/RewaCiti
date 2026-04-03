@@ -5,6 +5,7 @@ import Footer from "../../shared/components/Layout/Footer";
 import useScrollToHash from "../../shared/hooks/useScrollToHash";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router";
 
 function Contact() {
   const [agreed, setAgreed] = useState(false);
@@ -304,9 +305,9 @@ function Contact() {
               />
               <p className="text-gray-900 dark:text-white text-sm">
                 I agree with the{" "}
-                <a href="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
+                <Link to="/terms-policies" className="hover:text-[#703BF7] text-gray-900 dark:text-white text-sm underline dark:hover:text-[#703BF7]">
                   Terms & Conditions
-                </a>
+                </Link>
               </p>
           </div>
 

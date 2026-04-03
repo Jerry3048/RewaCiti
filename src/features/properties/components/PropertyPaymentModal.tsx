@@ -3,6 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { FiX, FiInfo, FiStar } from "react-icons/fi";
 import type { Property } from "../../../types";
 import axios from "axios";
+import { Link } from "react-router";
 
 interface PropertyPaymentModalProps {
   property: Property;
@@ -235,9 +236,9 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
               />
               <p className="dark:text-white text-gray-900 text-sm">
                 I agree with the{" "}
-                <a href="/terms-policies" className="hover:text-[#703BF7] text-[#703BF7] underline">
+                <Link to="/terms-policies" className="hover:text-[#703BF7] text-[#703BF7] underline">
                   Terms & Conditions
-                </a>
+                </Link>
               </p>
             </div>
 

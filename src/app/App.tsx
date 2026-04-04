@@ -40,9 +40,9 @@ function App() {
         <Route path="/Service" element={<Service />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Studentarea" element={<StudentHousing />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

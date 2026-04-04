@@ -9,6 +9,7 @@ import axios from "axios";
 import BookInspectionModal from "../../inspections/components/BookInspectionModal";
 import PropertyPaymentModal from "../components/PropertyPaymentModal";
 import ReportAgentModal from "../components/ReportAgentModal";
+import { PropertyDetailsSkeleton } from "../../../shared/components/ui/Skeletons";
 
 const slugify = (text: string) =>
   text.toLowerCase().replace(/\s+/g, "-");

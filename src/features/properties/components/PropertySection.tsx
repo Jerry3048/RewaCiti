@@ -5,6 +5,8 @@ import { NavLink } from "react-router";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import PropertyCard from "./PropertyCard";
 
+import { PropertyCardSkeleton } from "../../../shared/components/ui/Skeletons";
+
 function PropertySection() {
   const {properties,loading,page,ITEMS_PER_PAGE,fetchProperties,nextPage,prevPage,} = usePropertyStore();
 
@@ -14,7 +16,13 @@ function PropertySection() {
 
   // Loading State
   if (loading) {
-    return <p className="text-center text-white py-10">Loading properties...</p>;
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-4">
+        {[...Array(3)].map((_, i) => (
+          <PropertyCardSkeleton key={i} />
+        ))}
+      </div>
+    );
   }
 
   // Pagination Calculations

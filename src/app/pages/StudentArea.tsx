@@ -12,6 +12,8 @@ import { FiFilter } from "react-icons/fi";
 import useScrollToHash from "../../shared/hooks/useScrollToHash";
 import { Link, NavLink } from "react-router";
 
+import { PropertyCardSkeleton } from "../../shared/components/ui/Skeletons";
+
 function Studentarea() {
   useScrollToHash();
   const {
@@ -178,14 +180,18 @@ function Studentarea() {
     );
 
 
-  if (loading) {
+  if (loading || areaLoading) {
     return (
-      <p className="text-center text-white py-10">Loading properties...</p>
-    );
-  }
-   if (areaLoading) {
-    return (
-      <p className="text-center text-white py-10">Loading properties...</p>
+      <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
+        <Navbar />
+        <div className="w-[95%] mx-auto py-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <PropertyCardSkeleton key={i} />
+            ))}
+          </div>
+        </div>
+      </div>
     );
   }
 

@@ -4,6 +4,8 @@ import type { FAQ } from "../../../types";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { NavLink } from "react-router";
 
+import { FAQCardSkeleton } from "../../../shared/components/ui/Skeletons";
+
 function FAQSection() {
   const { faq, loading, page, ITEMS_PER_PAGE, fetchFAQs, nextPage, prevPage } =
     useFAQStore();
@@ -15,7 +17,13 @@ function FAQSection() {
   }, [fetchFAQs]);
 
   if (loading) {
-    return <p className="text-center text-white py-10">Loading FAQs...</p>;
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-4 py-5">
+        {[...Array(3)].map((_, i) => (
+          <FAQCardSkeleton key={i} />
+        ))}
+      </div>
+    );
   }
 
   const totalPages = Math.ceil(faq.length / ITEMS_PER_PAGE);

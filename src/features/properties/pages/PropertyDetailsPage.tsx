@@ -128,11 +128,7 @@ function PropertyDetails() {
   }, []);
 
   if (loading && properties.length === 0) {
-    return (
-      <div className="bg-black/30 min-h-screen flex items-center justify-center">
-        <p className="text-center text-white py-10">Loading property data...</p>
-      </div>
-    );
+    return <PropertyDetailsSkeleton />;
   }
 
   if (!property) {

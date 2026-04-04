@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useFAQStore } from "../store/useFAQStore";
 import type { FAQ } from "../../../types";
 import  Footer from "../../../shared/components/Layout/Footer";
+import { FAQCardSkeleton } from "../../../shared/components/ui/Skeletons";
 
 function AllFAQs() {
   const { faq, loading, fetchFAQs } = useFAQStore();
@@ -13,9 +14,17 @@ function AllFAQs() {
 
   if (loading) {
     return (
-      <p className="text-center text-white py-10">
-        Loading FAQs...
-      </p>
+      <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
+        <Navbar />
+        <div className="w-[95%] mx-auto py-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[...Array(6)].map((_, i) => (
+              <FAQCardSkeleton key={i} />
+            ))}
+          </div>
+        </div>
+        <Footer />
+      </div>
     );
   }
 

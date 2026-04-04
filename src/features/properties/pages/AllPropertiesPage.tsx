@@ -6,6 +6,8 @@ import PropertyCard from "../components/PropertyCard";
 import Footer from "../../../shared/components/Layout/Footer";
 import { FiArrowLeft, FiArrowRight, FiSearch } from "react-icons/fi";
 
+import { PropertyCardSkeleton } from "../../../shared/components/ui/Skeletons";
+
 function AllProperties() {
   const { filteredProperties, loading, fetchProperties, apiPage, totalProperties, searchQuery, setSearchQuery } = usePropertyStore();
 
@@ -29,7 +31,21 @@ function AllProperties() {
     }
   };
 
-  if (loading) return <p className="text-center text-white py-10">Loading properties...</p>;
+  if (loading) {
+    return (
+      <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
+        <Navbar />
+        <div className="w-[98%] mx-auto px-2 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(9)].map((_, i) => (
+              <PropertyCardSkeleton key={i} />
+            ))}
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-gray-300 dark:bg-black/30 min-h-screen">

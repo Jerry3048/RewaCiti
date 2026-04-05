@@ -14,17 +14,6 @@ function PropertySection() {
     fetchProperties();
   }, [fetchProperties]);
 
-  // Loading State
-  if (loading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-4">
-        {[...Array(3)].map((_, i) => (
-          <PropertyCardSkeleton key={i} />
-        ))}
-      </div>
-    );
-  }
-
   // Pagination Calculations
   const totalPages = Math.ceil(properties.length / ITEMS_PER_PAGE);
 
@@ -60,9 +49,15 @@ function PropertySection() {
       <div className=" py-4">
         {/* Properties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-          {currentProperties.map((item) => (
-            <PropertyCard key={item.id} property={item} />
-        ))}
+          {loading ? (
+            [...Array(3)].map((_, i) => (
+              <PropertyCardSkeleton key={i} />
+            ))
+          ) : (
+            currentProperties.map((item) => (
+              <PropertyCard key={item.id} property={item} />
+            ))
+          )}
         </div>
 
         <hr className="my-4 h-px bg-gray-600 border-0 w-full" />

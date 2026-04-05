@@ -180,21 +180,6 @@ function Studentarea() {
     );
 
 
-  if (loading || areaLoading) {
-    return (
-      <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
-        <Navbar />
-        <div className="w-[95%] mx-auto py-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              <PropertyCardSkeleton key={i} />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div>
       <Navbar />
@@ -320,7 +305,6 @@ function Studentarea() {
                   <option value="Self Contain">Self Contain</option>
                   <option value="Single Room">Single Room</option>
                   <option value="Mini Flat">Mini Flat</option>
-                  <option value="Single Room">Single Room</option>
                   <option value="Shared Room">Shared Room</option>
                 </select>
               </div>
@@ -395,7 +379,11 @@ function Studentarea() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-              {currentProperties.length === 0 ? (
+              {loading || areaLoading ? (
+                [...Array(6)].map((_, i) => (
+                  <PropertyCardSkeleton key={i} />
+                ))
+              ) : currentProperties.length === 0 ? (
                 <div className="col-span-full text-center py-10">
                   <h3 className="text-gray-900 dark:text-white text-xl font-semibold mb-2">
                     No properties found
@@ -527,27 +515,20 @@ function Studentarea() {
                 <option value="" disabled hidden>
                   Property Type
                 </option>
-                  <option value="Self Contain">Self Contain</option>
+                <option value="Self Contain">Self Contain</option>
                   <option value="Studio Apartment">Studio Apartment</option>
-                  <option value="Mini Flat (1 Bedroom)">Mini Flat (1 Bedroom)</option>
-                  <option value="2 Bedroom Flat">2 Bedroom Flat</option>
-                  <option value="3 Bedroom Flat">3 Bedroom Flat</option>
-                  <option value="4 Bedroom Flat">4 Bedroom Flat</option>
-                  <option value="Detached Bungalow">Detached Bungalow</option>
-                  <option value="Semi-Detached Bungalow">Semi-Detached Bungalow</option>
-                  <option value="Semi-Detached Duplex">Semi-Detached Duplex</option>
-                  <option value="Fully Detached Duplex">Fully Detached Duplex</option>
-                  <option value="Terrace Duplex">Terrace Duplex</option>
+                  <option value="Mini Flat">Mini Flat</option>
+                  <option value="Flat">Flat</option>
+                  <option value="Bungalow">Bungalow</option>
+                  <option value="Duplex">Duplex</option>
                   <option value="Mansion">Mansion</option>
                   <option value="Villa">Villa</option>
                   <option value="Smart Home">Smart Home</option>
-                  <option value="Shared Apartment">Shared Apartment</option>
                   <option value="Single Room (Shared)">Single Room (Shared)</option>
+                  <option value="Shared Room">Shared Room</option>
                   <option value="Face-me-I-face-you">Face-me-I-face-you</option>
-                  <option value="Short Let Apartment">Short Let Apartment</option>
                   <option value="Furnished Apartment">Furnished Apartment</option>
-                  <option value="Student Hostel">Student Hostel</option>
-                  <option value="Private Lodge">Private Lodge</option>
+                  <option value="Hostel">Hostel</option>
 
                   {/* Commercial */}
                   <option value="Shop">Shop</option>
@@ -559,9 +540,7 @@ function Studentarea() {
                   <option value="Guest House">Guest House</option>
 
                   {/* Land */}
-                  <option value="Residential Land">Residential Land</option>
-                  <option value="Commercial Land">Commercial Land</option>
-                  <option value="Agricultural Land">Agricultural Land</option>
+                  <option value="Land">Land</option>
 
                   {/* Special */}
                   <option value="Mixed-Use Property">Mixed-Use Property</option>

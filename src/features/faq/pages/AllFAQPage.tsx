@@ -12,22 +12,6 @@ function AllFAQs() {
     fetchFAQs();
   }, [fetchFAQs]);
 
-  if (loading) {
-    return (
-      <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
-        <Navbar />
-        <div className="w-[95%] mx-auto py-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[...Array(6)].map((_, i) => (
-              <FAQCardSkeleton key={i} />
-            ))}
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-gray-300 dark:bg-black/30">
       <Navbar />
@@ -35,20 +19,26 @@ function AllFAQs() {
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Frequently Asked Questions</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-          {faq.map((item: FAQ) => (
-            <div
-              key={item.id}
-              className="border border-gray-600/30 rounded-xl p-4 text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A]"
-            >
-              {/* Question */}
-              <h4 className="text-lg font-semibold mb-2">{item.question}</h4>
+          {loading ? (
+            [...Array(6)].map((_, i) => (
+              <FAQCardSkeleton key={i} />
+            ))
+          ) : (
+            faq.map((item: FAQ) => (
+              <div
+                key={item.id}
+                className="border border-gray-600/30 rounded-xl p-4 text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A]"
+              >
+                {/* Question */}
+                <h4 className="text-lg font-semibold mb-2">{item.question}</h4>
 
-              {/* Answer */}
-              <p className="dark:text-gray-400 text-gray-600 text-sm leading-relaxed">
-                {item.answer}
-              </p>
-            </div>
-          ))}
+                {/* Answer */}
+                <p className="dark:text-gray-400 text-gray-600 text-sm leading-relaxed">
+                  {item.answer}
+                </p>
+              </div>
+            ))
+          )}
         </div>
 
       </div>

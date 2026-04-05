@@ -31,22 +31,6 @@ function AllProperties() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
-        <Navbar />
-        <div className="w-[98%] mx-auto px-2 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...Array(9)].map((_, i) => (
-              <PropertyCardSkeleton key={i} />
-            ))}
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-gray-300 dark:bg-black/30 min-h-screen">
       <Navbar />
@@ -66,7 +50,13 @@ function AllProperties() {
           </div>
         </div>
         
-        {filteredProperties.length === 0 ? (
+        {loading ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[...Array(9)].map((_, i) => (
+              <PropertyCardSkeleton key={i} />
+            ))}
+          </div>
+        ) : filteredProperties.length === 0 ? (
           <div className="text-center py-20 bg-white dark:bg-neutral-900 rounded-2xl border border-gray-200 dark:border-gray-800">
              <FiSearch size={48} className="mx-auto text-gray-300 mb-4" />
              <p className="text-xl font-medium text-gray-900 dark:text-white">No properties found</p>

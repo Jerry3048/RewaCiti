@@ -14,16 +14,6 @@ function CommentSection() {
     fetchComments();
   }, [fetchComments]);
 
-  if (loading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-4 py-5">
-        {[...Array(3)].map((_, i) => (
-          <CommentCardSkeleton key={i} />
-        ))}
-      </div>
-    );
-  }
-
   const totalPages = Math.ceil(comments.length / ITEMS_PER_PAGE);
 
   const currentComments: Comment[] = comments.slice(
@@ -64,54 +54,60 @@ function CommentSection() {
        </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-        {currentComments.map((comment) => (
-          <div key={comment.id} className="rounded-xl p-5 text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A] border border-purple-100 dark:border-gray-600/30">
-            {/* Rating */}
-            <p className="text-yellow-400 text-lg">
-              {"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}
-            </p>
+        {loading ? (
+          [...Array(3)].map((_, i) => (
+            <CommentCardSkeleton key={i} />
+          ))
+        ) : (
+          currentComments.map((comment) => (
+            <div key={comment.id} className="rounded-xl p-5 text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A] border border-purple-100 dark:border-gray-600/30">
+              {/* Rating */}
+              <p className="text-yellow-400 text-lg">
+                {"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}
+              </p>
 
-            {/* Summary */}
-            <h3 className="text-lg font-semibold mb-2">{comment.summary}</h3>
+              {/* Summary */}
+              <h3 className="text-lg font-semibold mb-2">{comment.summary}</h3>
 
-            {/* Description */}
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-              {expanded[comment.id] ? comment.description : truncateWords(comment.description, 10)}
-              {comment.description.split(" ").length > 10 && (
-                <button
-                  onClick={() =>
-                    setExpanded((prev) => ({ ...prev, [comment.id]: !prev[comment.id] }))
-                  }
-                  className="text-[#703BF7] ml-2 hover:underline"
-                >
-                  {expanded[comment.id] ? "Show less" : "... Read more"}
-                </button>
-              )}
-            </p>
+              {/* Description */}
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                {expanded[comment.id] ? comment.description : truncateWords(comment.description, 10)}
+                {comment.description.split(" ").length > 10 && (
+                  <button
+                    onClick={() =>
+                      setExpanded((prev) => ({ ...prev, [comment.id]: !prev[comment.id] }))
+                    }
+                    className="text-[#703BF7] ml-2 hover:underline"
+                  >
+                    {expanded[comment.id] ? "Show less" : "... Read more"}
+                  </button>
+                )}
+              </p>
 
-            {/* Reviewer Info */}
-            <div className="flex items-center gap-3 mt-4">
-              <img
-                src={comment.img}
-                alt={comment.name}
-                className="w-12 h-12 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-semibold">{comment.name}</p>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                    comment.location
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 text-sm hover:text-[#703BF7] transition-colors"
-                >
-                  {comment.location}
-                </a>
+              {/* Reviewer Info */}
+              <div className="flex items-center gap-3 mt-4">
+                <img
+                  src={comment.img}
+                  alt={comment.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-semibold">{comment.name}</p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      comment.location
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 text-sm hover:text-[#703BF7] transition-colors"
+                  >
+                    {comment.location}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <hr className="h-px bg-gray-600 border-0 w-full my-5" />
 

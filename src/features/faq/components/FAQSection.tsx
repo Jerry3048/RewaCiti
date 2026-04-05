@@ -16,16 +16,6 @@ function FAQSection() {
     fetchFAQs();
   }, [fetchFAQs]);
 
-  if (loading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 px-4 py-5">
-        {[...Array(3)].map((_, i) => (
-          <FAQCardSkeleton key={i} />
-        ))}
-      </div>
-    );
-  }
-
   const totalPages = Math.ceil(faq.length / ITEMS_PER_PAGE);
 
   const currentFAQs: FAQ[] = faq.slice(
@@ -69,35 +59,41 @@ function FAQSection() {
 
       {/* FAQ Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-        {currentFAQs.map((faq) => (
-          <div
-            key={faq.id}
-            className="text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A] border border-purple-100 dark:border-gray-600/30 rounded-xl p-5"
-          >
-            {/* Question */}
-            <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
+        {loading ? (
+          [...Array(3)].map((_, i) => (
+            <FAQCardSkeleton key={i} />
+          ))
+        ) : (
+          currentFAQs.map((faq) => (
+            <div
+              key={faq.id}
+              className="text-gray-900 dark:text-white bg-white/90 dark:bg-[#1A1A1A] border border-purple-100 dark:border-gray-600/30 rounded-xl p-5"
+            >
+              {/* Question */}
+              <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
 
-            {/* Answer */}
-            <p className="text-sm text-gray-600 dark:text-gray-300">
-              {expanded[faq.id]
-                ? faq.answer
-                : truncateWords(faq.answer,8)}
-            </p>
-             {faq.answer.split(" ").length > 8 && (
-                <button
-                  onClick={() =>
-                    setExpanded((prev) => ({
-                      ...prev,
-                      [faq.id]: !prev[faq.id],
-                    }))
-                  }
-                  className="text-[#703BF7] px-2  py-1 bg-black/30 border border-gray-600/30 rounded-md mt-4"
-                >
-                  {expanded[faq.id] ? "Show less" : " Read more"}
-                </button>
-              )}
-          </div>
-        ))}
+              {/* Answer */}
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {expanded[faq.id]
+                  ? faq.answer
+                  : truncateWords(faq.answer,8)}
+              </p>
+               {faq.answer.split(" ").length > 8 && (
+                  <button
+                    onClick={() =>
+                      setExpanded((prev) => ({
+                        ...prev,
+                        [faq.id]: !prev[faq.id],
+                      }))
+                    }
+                    className="text-[#703BF7] px-2  py-1 bg-black/30 border border-gray-600/30 rounded-md mt-4"
+                  >
+                    {expanded[faq.id] ? "Show less" : " Read more"}
+                  </button>
+                )}
+            </div>
+          ))
+        )}
       </div>
 
       <hr className="h-px bg-gray-600 border-0 w-full my-4" />

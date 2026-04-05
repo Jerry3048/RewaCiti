@@ -128,50 +128,24 @@ function PropertyDetails() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  if (loading && properties.length === 0) {
-    return <PropertyDetailsSkeleton />;
-  }
-
-  if (!property) {
-    return (
-      <div className="bg-black/30 min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-semibold text-white mb-4">Property Not Found</h1>
-          <p className="text-gray-400">The property you're looking for doesn't exist.</p>
-        </div>
-      </div>
-    );
-  }
-
-const price = property?.price || 0;
-
-  const images = property?.images || [];
-  
-  // Responsive: show 1 image on small screens, 2 on md+
-  const visibleImages = images.slice(
-    currentIndex,
-    currentIndex + step
-  );
-
-  const nextImages = () => {
-    if (currentIndex + step < images.length) {
-      setCurrentIndex(currentIndex + step);
-    }
-  };
-
-  const prevImages = () => {
-    if (currentIndex - step >= 0) {
-      setCurrentIndex(currentIndex - step);
-    }
-  };
-
   return (
     <div className="bg-gray-300 dark:bg-black/30">
       <Navbar />
 
-      <div className="mx-auto">
-        {/* Name, Location & Price Section */}
-        <div className="md:flex gap-3 items-center px-4 py-6 whitespace-nowrap">
+      {loading && properties.length === 0 ? (
+        <PropertyDetailsSkeleton />
+      ) : !property ? (
+        <div className="bg-black/30 min-h-[70vh] flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-2xl font-semibold text-white mb-4">Property Not Found</h1>
+            <p className="text-gray-400">The property you're looking for doesn't exist.</p>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="mx-auto">
+            {/* Name, Location & Price Section */}
+            <div className="md:flex gap-3 items-center px-4 py-6 whitespace-nowrap">
           <div className="flex flex-col">
             <h1 className="text-2xl font-semibold mb-1 text-gray-900 dark:text-white max-w-[90%]">{property?.name}</h1>
           </div>

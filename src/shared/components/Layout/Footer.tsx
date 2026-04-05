@@ -1,6 +1,7 @@
 import logo from "/Symbol.png"; 
 import Entericon from "/logo/Send.png";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router";
 import { useState } from "react";
 import axios from "axios";
@@ -220,17 +221,17 @@ function Footer() {
 
             {/* Right side: Social Media Icons */}
             <div className="flex gap-2">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex p-2">
-                <FaFacebookF />
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex p-2">
+                <FaLinkedin />
               </a>
-              <a href="https://x.com/RewaCiti_001" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
-                <FaTwitter />
+              <a href="https://x.com/RewaCiti_001" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:bg-white hover:text-black rounded-full w-8 h-8 bg-black items-center justify-center flex">
+                <FaXTwitter />
               </a>
               <a href="https://www.instagram.com/rewaciti/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-pink-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
                 <FaInstagram />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-blue-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
-                <FaLinkedinIn />
+              <a href="https://www.youtube.com/@RewaCiti" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-red-500 rounded-full w-8 h-8 bg-black items-center justify-center flex">
+                <FaYoutube />
               </a>
             </div>
           </div>

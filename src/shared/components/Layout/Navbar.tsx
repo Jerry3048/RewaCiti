@@ -1,6 +1,5 @@
 import { NavLink } from "react-router";
 import logo from "/Symbol.png";
-import Hanburger from "/logo/Icon.png";
 import { useState } from "react";
 import { useThemeStore } from "../../store/useThemeStore";
 import { FiSun, FiMoon} from "react-icons/fi";
@@ -104,7 +103,15 @@ const Navbar = () => {
           {/* MOBILE MENU BUTTON */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)}>
-              <img src={Hanburger} alt="mobile menu" className="w-7" />
+               <svg
+                  className="w-7 h-7"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
+               </svg>
             </button>
           </div>
 

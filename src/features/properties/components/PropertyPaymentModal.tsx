@@ -164,7 +164,7 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
               </p>
 
               <p className="text-sm dark:text-gray-300 text-gray-700 text-center mt-1">
-                Contact details will be shared once your payment has been successfully confirmed.
+                The Agent's Contact details will be shared once your payment has been successfully confirmed.
               </p>
             </div>
 

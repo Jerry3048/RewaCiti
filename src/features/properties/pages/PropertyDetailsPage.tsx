@@ -19,14 +19,31 @@ function PropertyDetails() {
   const { properties, fetchProperties, loading } = usePropertyStore();
   const property = properties.find((p) => slugify(p.name) === name);
 
+  const price = property?.price ?? 0;
+  const images = property?.images ?? [];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [step, setStep] = useState(window.innerWidth < 768 ? 1 : 2);
+
+  const visibleImages = images.slice(currentIndex, currentIndex + step);
+
+  const nextImages = () => {
+    if (currentIndex + step < images.length) {
+      setCurrentIndex((prev) => prev + 1);
+    }
+  };
+
+  const prevImages = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex((prev) => prev - 1);
+    }
+  };
+
   useEffect(() => {
     if (properties.length === 0) {
       fetchProperties();
     }
   }, [properties.length, fetchProperties]);
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [step, setStep] = useState(window.innerWidth < 768 ? 1 : 2);
 
   // FORM STATES
   const [firstName, setFirstName] = useState("");
@@ -541,6 +558,8 @@ function PropertyDetails() {
           </form>
         </div>
       </section>
+        </>
+      )}
       <div className="pt-5"><Footer/></div>
     </div>
   );

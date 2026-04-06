@@ -134,7 +134,10 @@ function PropertySearchSection() {
         p.location.area.toLowerCase().includes(searchTerm.toLowerCase()) ||
         p.location.state.toLowerCase().includes(searchTerm.toLowerCase());
 
-      const matchesLocation = location ? p.location.state === location : true;
+      const matchesLocation = location
+        ? `${p.location.state}, ${p.location.city}` === location
+        : true;
+
       const matchesType = type ? p.type === type : true;
       const matchesBedrooms = bedrooms ? p.bedrooms === Number(bedrooms) : true;
       const matchesArea = area ? p.location.area === area : true;
@@ -177,21 +180,26 @@ function PropertySearchSection() {
   const uniqueLocations = Array.from(
     new Set(
       properties.map(
-        (p) => `${p.location.state}`,
-      ),
-    ),
+        (p) => `${p.location.state}, ${p.location.city}`
+      )
+    )
   );
 
   const uniqueTypes = Array.from(new Set(properties.map((p) => p.type)));
   const uniqueBedrooms = Array.from(
     new Set(properties.map((p) => p.bedrooms)),
   ).sort((a, b) => a - b);
+
   const uniqueAreas = Array.from(
     new Set(
       properties
-        .filter((p) => (location ? p.location.state === location : true))
-        .map((p) => p.location.area),
-    ),
+        .filter((p) =>
+          location
+            ? `${p.location.state}, ${p.location.city}` === location
+            : true
+        )
+        .map((p) => p.location.area)
+    )
   );
 
   return (

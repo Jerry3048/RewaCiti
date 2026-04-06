@@ -221,7 +221,8 @@ function Studentarea() {
         </div>
       </div>
 
-      <div className="bg-gray-300 dark:bg-black/30 px-4">
+      <div className="
+       dark:bg-black/30 px-4">
         <div className="pt-8 mx-auto">
           {/* Filters Container */}
           <div

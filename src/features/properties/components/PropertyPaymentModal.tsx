@@ -252,7 +252,7 @@ const PropertyPaymentModal: React.FC<PropertyPaymentModalProps> = ({
                   onChange={(e) => setFeedback(e.target.value)}
                   placeholder="Your feedback helps us improve..."
                   className="w-full bg-gray-600/10 border border-gray-600/30 rounded-md px-3 py-2 text-sm focus:outline-none focus:border-[#703BF7] dark:text-white text-gray-900"
-                />
+                ></textarea>
               </div>
               <p className="text-xs text-gray-500 italic">Your feedback helps us improve!</p>
             </div>

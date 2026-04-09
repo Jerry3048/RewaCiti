@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useInspectionStore } from "../store/useInspectionStore";
 import type { Property } from "../../../types";
@@ -26,22 +26,19 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
 
   const addInspection = useInspectionStore((state) => state.addInspection);
   const updatePaymentStatus = useInspectionStore((state) => state.updatePaymentStatus);
+  const fees = useInspectionStore((state) => state.fees);
+  const loading = useInspectionStore((state) => state.loading);
+  const fetchFees = useInspectionStore((state) => state.fetchFees);
 
-  // Example fee calculation based on city
-  const calculateFee = (city: string) => {
-    const normalizedCity = city.toLowerCase();
-    const fees: { [key: string]: number } = {
-      yaba: 10000,
-      abuja: 15000,
-      "port harcourt": 12000,
-      "ile-ife": 3000, 
-      osogbo: 8000,
-      default: 5000,
-    };
-    return fees[normalizedCity] || fees.default;
-  };
+  useEffect(() => {
+    if (open && !fees) {
+      fetchFees();
+    }
+  }, [open, fees, fetchFees]);
 
-  const amount = calculateFee(property.location.city);
+  const normalizedCity = property.location.city?.toLowerCase().replace(/\s+/g, "-") ?? "";
+  const normalizedState = property.location.state?.toLowerCase().replace(/\s+/g, "-") ?? "";
+  const amount = fees?.[normalizedState]?.[normalizedCity] ?? fees?.default ?? 5000;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -200,7 +197,9 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
               </div>
               <div className="flex justify-between items-center border-t border-[#703BF7]/20 pt-2">
                 <span className="text-sm font-medium dark:text-white text-gray-900">Inspection Fee</span>
-                <span className="text-lg font-bold text-[#703BF7]">₦{amount.toLocaleString()}</span>
+                <span className="text-lg font-bold text-[#703BF7]">
+                  {loading && !fees ? "Loading..." : `₦${amount.toLocaleString()}`}
+                </span>
               </div>
             </div>
 
@@ -226,14 +225,14 @@ const BookInspectionModal: React.FC<BookInspectionModalProps> = ({
 
             <button
               type="submit"
-              disabled={!agreed || isSubmitting}
+              disabled={!agreed || isSubmitting || loading}
               className={`w-full font-medium py-3 rounded-md transition-colors mt-4 disabled:opacity-50 ${
-                agreed && !isSubmitting
+                agreed && !isSubmitting && !loading
                   ? "bg-[#703BF7] hover:bg-[#5c2fe0] text-white"
                   : "bg-gray-400 cursor-not-allowed text-gray-200"
               }`}
             >
-              {isSubmitting ? "Processing..." : "Pay & Book a Visit"}
+              {isSubmitting ? "Processing..." : loading ? "Loading fees..." : "Pay & Book a Visit"}
             </button>
 
             {/* <p className="text-xs dark:text-gray-400 text-gray-600 text-center italic mt-2">

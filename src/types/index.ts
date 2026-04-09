@@ -178,11 +178,7 @@ export interface Inspection {
   location: string;
 }
 
-export type Fees = {
-  [state: string]: {
-    [area: string]: number;
-  };
-} & {
+export type Fees = Record<string, Record<string, number>> & {
   default: number;
 };
 

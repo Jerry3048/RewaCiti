@@ -116,20 +116,6 @@
     ]
   },
   {
-    "id": "POLYIBADAN",
-    "name": "The Polytechnic Ibadan",
-    "city": "Ibadan",
-    "state": "Oyo",
-    "areas": [
-      "Sango",
-      "Eleyele",
-      "Apete",
-      "Awotan",
-      "Ajibode",
-      "Campus"
-    ]
-  },
-  {
     "id": "YABATECH",
     "name": "Yaba College of Technology",
     "city": "Lagos",
@@ -205,20 +191,19 @@
     ]
   },
   {
-    "id": "YABATECH",
-    "name": "Yaba College of Technology",
-    "city": "Lagos",
-    "state": "Lagos",
+    "id": "POLYEKITI",
+    "name": "The Polytechnic Ekiti",
+    "city": "Ado Ekiti",
+    "state": "Ekiti",
     "areas": [
-      "Yaba",
-      "Sabo",
-      "Onike",
-      "Abule Oja",
-      "Fadeyi",
-      "Jibowu",
+      "Iworoko Road",
+      "Odo-Ado",
+      "Ajebamidele",
+      "Falegan",
+      "Aba Erinfun",
       "Campus"
     ]
-  },
+   },
   {
     "id": "MAPOLY",
     "name": "Moshood Abiola Polytechnic",
@@ -260,6 +245,21 @@
       "Oka",
       "Oba Akoko",
       "Campus"
+    ]
+  },
+  {
+    "id": "AAU",
+    "name": "Ambrose Alli University",
+    "city": "Ekpoma",
+    "state": "Edo",
+    "areas": [
+      "Ekpoma Town",
+      "Irrua Road",
+      "Uromi Road",
+      "Ehor",
+      "Agbede",
+      "Campus",
+      "Emaudo"
     ]
   },
   {
